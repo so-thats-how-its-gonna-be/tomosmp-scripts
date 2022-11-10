@@ -3,5 +3,6 @@ no_portal:
     debug: false
     events:
         on player right clicks end_portal_frame:
-            - narrate "The end is disabled right now!"
+            - narrate "<red>The end is disabled right now!"
+            - playsound sound:entity_villager_no sound_category:master
             - determine cancelled
