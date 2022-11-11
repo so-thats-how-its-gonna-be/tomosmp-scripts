@@ -1,7 +1,7 @@
 #This removes the level cap that says "Too expensive!" within anvils, so now there is no enchantment limit!
 anvil_no_max:
     type: world
-    debug: false
+    debug: true
     events:
         on player prepares anvil craft item:
             - if <context.repair_cost> >= 30:
