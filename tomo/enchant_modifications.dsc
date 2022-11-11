@@ -1,5 +1,5 @@
 #This removes the level cap that says "Too expensive!" within anvils, so now there is no enchantment limit!
-anvil_no_max:
+enchantment_mods:
     type: world
     debug: true
     events:
