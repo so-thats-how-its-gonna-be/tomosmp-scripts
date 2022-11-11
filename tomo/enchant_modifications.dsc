@@ -9,3 +9,5 @@ anvil_no_max:
         #Remove mending
         on loot generates:
             - determine LOOT:<inventory[chest].include[<context.items>].exclude_item[item_enchanted:mending].list_contents>
+        after player right clicks villager:
+            - adjust <context.entity> trades:<context.entity.trades.filter_tag[<[filter_value].advanced_matches[item_enchated:mending].not>]>
