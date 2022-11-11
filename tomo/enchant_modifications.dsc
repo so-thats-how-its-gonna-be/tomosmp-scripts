@@ -10,4 +10,4 @@ anvil_no_max:
         on loot generates:
             - determine LOOT:<inventory[chest].include[<context.items>].exclude_item[item_enchanted:mending].list_contents>
         on player right clicks villager:
-            - adjust <context.entity> trades:<context.entity.trades.filter_tag[<[filter_value].result.advanced_matches[item_enchated:mending].not>]>
+            - adjust <context.entity> trades:<context.entity.trades.filter_tag[<[filter_value].result.advanced_matches[item_enchanted:mending].not>]>
