@@ -2,4 +2,4 @@ stone_fix:
     type: world
     events:
         on player breaks stone_slab:
-        - determine <item[cobblestone]> if:<context.should_drop_items>
+            - determine cobblestone if:<context.should_drop_items>
