@@ -22,6 +22,6 @@ reload_override:
             - narrate "Reloaded Essentials"
             - execute as_op "auctionhouse reload"
             - narrate "Reloaded AuctionHouse"
-            - execute as_op "mcmmo reload"
-            - narrate "Reloaded McMMO"
+            #- execute as_op "mcmmo reload"
+            #- narrate "Reloaded McMMO"
             - determine FULFILLED
