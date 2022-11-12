@@ -24,3 +24,4 @@ reload_override:
             - narrate "Reloaded AuctionHouse"
             - execute as_player "mcmmo reload"
             - narrate "Reloaded McMMO"
+            - determine FULFILLED
