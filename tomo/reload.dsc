@@ -9,6 +9,7 @@ auto_actions:
 
 reload_override:
     type: world
+    debug: false
     events:
         on reload|rl command:
             - stop if:<player.is_op.not>
