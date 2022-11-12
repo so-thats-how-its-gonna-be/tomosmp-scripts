@@ -8,7 +8,7 @@ enchantment_mods:
                 - adjust <context.inventory> anvil_repair_cost:29
         #Remove mending
         on loot generates:
-            - stop if:<inventory[chest].include[<context.items>].contains_item[item_enchanted:mending]>
+            - stop if:<inventory[chest].include[<context.items>].contains_item[item_enchanted:mending].not>
             - determine LOOT:<inventory[chest].include[<context.items>].exclude_item[item_enchanted:mending].list_contents>
         on player right clicks villager:
             - adjust <context.entity> trades:<context.entity.trades.filter_tag[<[filter_value].result.enchantment_map.keys.contains[mending].not>]>
