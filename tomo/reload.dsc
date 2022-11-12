@@ -14,14 +14,14 @@ reload_override:
             - stop if:<player.is_op.not>
             - reload
             - narrate "Reloaded Denizen"
-            - execute as_player "townyadmin reload"
+            - execute as_op "townyadmin reload all"
             - narrate "Reloaded Towny"
-            - execute as_player "rtp reload"
+            - execute as_op "rtp reload"
             - narrate "Reloaded RTP"
-            - execute as_player "essentials reload"
+            - execute as_op "essentials reload"
             - narrate "Reloaded Essentials"
-            - execute as_player "auctionhouse reload"
+            - execute as_op "auctionhouse reload"
             - narrate "Reloaded AuctionHouse"
-            - execute as_player "mcmmo reload"
+            - execute as_op "mcmmo reload"
             - narrate "Reloaded McMMO"
             - determine FULFILLED
