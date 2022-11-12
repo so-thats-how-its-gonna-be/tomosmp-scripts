@@ -6,4 +6,4 @@ money4mcmmo:
             - wait 30t
             - define money_gain <context.new_level.mul[0.25].add[<util.random.decimal[0].to[1]>].as_money>
             - money give players:<player> quantity:<[money_gain]>
-            - narrate "<gold>You gained $<[money_gain]> for reaching level <green><context.new_level> <gold>in <light_purple><context.skill.to_titlecase>!"
+            - narrate "<gold>You've earned $<[money_gain]> for reaching level <green><context.new_level> <gold>in <light_purple><context.skill.to_titlecase>!"
