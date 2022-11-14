@@ -16,20 +16,23 @@ reload_override:
             - stop if:<player.is_op.not>
             - reload
             - narrate "Reloaded Denizen"
-            - wait 5t
+            - wait <util.random.int[1].to[5]>t
             - execute as_op "townyadmin reload all"
             - narrate "Reloaded Towny"
-            - wait 5t
+            - wait <util.random.int[1].to[5]>t
             - execute as_op "rtp reload"
             - narrate "Reloaded RTP"
-            - wait 5t
+            - wait <util.random.int[1].to[5]>t
             - execute as_op "essentials reload"
             - narrate "Reloaded Essentials"
-            - wait 5t
+            - wait <util.random.int[1].to[5]>t
             - execute as_op "auctionhouse reload"
             - narrate "Reloaded AuctionHouse"
-            - wait 5t
+            - wait <util.random.int[1].to[5]>t
             - execute as_op "mcmmo reload"
             - narrate "Reloaded McMMO"
-            - wait 5t
+            - wait <util.random.int[1].to[5]>t
+            - execute as_op "graves reload"
+            - narrate "Reloaded Graves"
+            - wait <util.random.int[1].to[5]>t
             - narrate "<green><bold>Reloaded all plugins! :)"
