@@ -15,17 +15,20 @@ redeem_cash_note:
     events:
         on player right clicks block with:item_flagged:money_redeem:
             - determine passively cancelled
-            - if <context.item.flag[money_redeem].is_integer.not> || <context.item.has_flag[uniqueifier].not> || <context.item.script.exists.not>:
+            - flag server money.redeemed_uuids:<list[]> if:<server.has_flag[money.redeemed_uuids].not>
+            - if <context.item.flag[money_redeem].is_integer.not> || <context.item.has_flag[uuid].not> || <context.item.script.exists.not> || <server.flag[money.redeemed_uuids].contains[<context.item.flag[uuid]>].if_null[false]>:
                 - narrate "<red>Invalid cash note!"
-                - narrate "<red>Report this to an admin please!"
-                - narrate "<red><&lt> ERROR CODE: 0" if:<context.item.flag[money_redeem].is_integer.not>
-                - narrate "<red><&lt> ERROR CODE: 1" if:<context.item.has_flag[uniqueifier].not>
-                - narrate "<red><&lt> ERROR CODE: 2" if:<context.item.script.exists.not>
+                - narrate "<red>Please report this to an admin!"
+                - narrate "<red><&gt> ERROR CODE: 0" if:<context.item.flag[money_redeem].is_integer.not>
+                - narrate "<red><&gt> ERROR CODE: 1" if:<context.item.has_flag[uuid].not>
+                - narrate "<red><&gt> ERROR CODE: 2" if:<context.item.script.exists.not>
+                - narrate "<red><&gt> ERROR CODE: 3" if:<server.flag[money.redeemed_uuids].contains[<context.item.flag[uuid]>].if_null[false]>
                 - stop
+            - flag server money.redeemed_uuids:->:<context.item.flag[uuid]>
             - take iteminhand quantity:1
             - money give <player> quantity:<context.item.flag[money_redeem]>
-            - ~log type:info file:dlogs/money.log "<proc[time_format]> <player.name> redeemed a cash note for $<context.item.flag[money_redeem]>!"
-            - narrate "<gold>You redeemed a cash note for <green>$<context.item.flag[money_redeem]><gold>!"
+            - ~log type:info file:dlogs/money.log "<proc[time_format]> <player.name> redeemed a <context.item.name.strip_color.if_null[unknown cash note]> for $<context.item.flag[money_redeem]>!"
+            - narrate "<gold>You redeemed a <context.item.name> for <green>$<context.item.flag[money_redeem]><gold>!"
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:gold_ingot
 
@@ -41,7 +44,7 @@ tiny_cash_note:
         - <white>$10.00
         - <white>Right click to redeem.
     flags:
-        uniqueifier: <util.random_uuid>
+        uuid: <util.random_uuid>
         money_redeem: 10
     allow in material recipes: false
 
@@ -57,38 +60,38 @@ small_cash_note:
         - <white>$100.00
         - <white>Right click to redeem.
     flags:
-        uniqueifier: <util.random_uuid>
+        uuid: <util.random_uuid>
         money_redeem: 100
     allow in material recipes: false
 
 medium_cash_note:
     type: item
     material: book
-    display name: <gold><underline>Medium Cash Note
+    display name: <blue><underline>Medium Cash Note
     mechanisms:
         hides: all
     enchantments:
         - UNBREAKING:1
     lore:
-        - <white>$1000.00
+        - <white>$1,000.00
         - <white>Right click to redeem.
     flags:
-        uniqueifier: <util.random_uuid>
+        uuid: <util.random_uuid>
         money_redeem: 1000
     allow in material recipes: false
 
 large_cash_note:
     type: item
     material: book
-    display name: <gold><underline>Large Cash Note
+    display name: <blue><underline>Large Cash Note
     mechanisms:
         hides: all
     enchantments:
         - UNBREAKING:1
     lore:
-        - <white>$10000.00
+        - <white>$10,000.00
         - <white>Right click to redeem.
     flags:
-        uniqueifier: <util.random_uuid>
+        uuid: <util.random_uuid>
         money_redeem: 10000
     allow in material recipes: false
