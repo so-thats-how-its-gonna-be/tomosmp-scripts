@@ -12,17 +12,24 @@ reload_override:
     debug: false
     events:
         on reload|rl command:
+            - determine passively FULFILLED
             - stop if:<player.is_op.not>
             - reload
             - narrate "Reloaded Denizen"
+            - wait 5t
             - execute as_op "townyadmin reload all"
             - narrate "Reloaded Towny"
+            - wait 5t
             - execute as_op "rtp reload"
             - narrate "Reloaded RTP"
+            - wait 5t
             - execute as_op "essentials reload"
             - narrate "Reloaded Essentials"
+            - wait 5t
             - execute as_op "auctionhouse reload"
             - narrate "Reloaded AuctionHouse"
+            - wait 5t
             - execute as_op "mcmmo reload"
             - narrate "Reloaded McMMO"
-            - determine FULFILLED
+            - wait 5t
+            - narrate "<green><bold>Reloaded all plugins! :)"
