@@ -10,6 +10,7 @@ auto_actions:
             - wait 3s
             - reload
 
+#fuck
 toggle_features:
     type: command
     name: togglefeatures
