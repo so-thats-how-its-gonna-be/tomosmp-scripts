@@ -24,6 +24,7 @@ redeem_cash_note:
                 - narrate "<red><&gt> ERROR CODE: 1" if:<context.item.has_flag[uuid].not>
                 - narrate "<red><&gt> ERROR CODE: 2" if:<context.item.script.exists.not>
                 - narrate "<red><&gt> ERROR CODE: 3" if:<server.flag[money.redeemed_uuids].contains[<context.item.flag[uuid]>].if_null[false]>
+                - playsound <player> sound:entity_villager_no volume:1 pitch:1
                 - stop
             - flag server money.redeemed_uuids:->:<context.item.flag[uuid]>
             - take iteminhand quantity:1
@@ -32,7 +33,7 @@ redeem_cash_note:
             - narrate "<gold>You redeemed a <context.item.display><reset><gold> for <green>$<context.item.flag[money_redeem]><gold>!"
             - narrate "<gold>Your balance is now <green>$<player.money.as_money><gold>!"
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
-            - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:gold_ingot
+            - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:<list[emerald|gold_ingot|diamond].random[1]>
 
 bank_note_tiny:
     type: item
