@@ -11,6 +11,28 @@ money4mcmmo:
             - narrate "<gold><bold>You earned $<[money_gain]> for reaching level <blue><bold><context.new_level> <gold><bold>in <green><bold><context.skill.to_titlecase><gold><bold>!"
             - playsound <player> sound:entity_experience_orb_pickup volume:1 pitch:1
 
+money4fishing:
+    type: world
+    events:
+        on player fishes item bukkit_priority:HIGH:
+            - stop if:<player.mcmmo.level[fishing].is_less_than[30]>
+            - if <util.random_chance[5]>:
+                - define item <item[bank_note_tiny]>
+                - narrate "<gold><bold>You caught a <[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money>!"
+                - determine <[item]>
+            - else if <util.random_chance[1]>:
+                - define item <item[bank_note_small]>
+                - narrate "<gold><bold>You caught a <[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money>!"
+                - determine <[item]>
+            - else if <util.random_chance[0.05]>:
+                - define item <item[bank_note_medium]>
+                - narrate "<gold><bold>You caught a <[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money>!"
+                - determine <[item]>
+            - else if <util.random_chance[0.01]>:
+                - define item <item[bank_note_large]>
+                - narrate "<gold><bold>You caught a <[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money>!"
+                - determine <[item]>
+
 redeem_cash_note:
     type: world
     events:
