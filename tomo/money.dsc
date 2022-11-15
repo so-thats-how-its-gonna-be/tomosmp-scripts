@@ -2,6 +2,7 @@ money4mcmmo:
     type: world
     events:
         after mcmmo player levels up skill:
+            - stop if:<context.skill.equals[repair]>
             - stop if:<player.flag[mcmmo.<context.skill.to_lowercase>.top_level].is_less_than_or_equal_to[<context.level>].if_null[false]>
             - flag <player> mcmmo.<context.skill.to_lowercase>.top_level:<context.level>
             - wait 15t
