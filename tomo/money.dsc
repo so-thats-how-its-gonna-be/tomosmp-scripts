@@ -28,15 +28,15 @@ redeem_cash_note:
             - flag server money.redeemed_uuids:->:<context.item.flag[uuid]>
             - take iteminhand quantity:1
             - money give <player> quantity:<context.item.flag[money_redeem]>
-            - ~log type:info file:dlogs/money.log "<proc[time_format]> <player.name> redeemed a <context.item.display.strip_color.if_null[unknown cash note]> for $<context.item.flag[money_redeem]>!"
-            - narrate "<gold>You redeemed a <context.item.display> for <green>$<context.item.flag[money_redeem]><gold>!"
+            - ~log type:info file:dlogs/money.log "<player.name> redeemed a <context.item.display.strip_color.if_null[unknown bank note]> for $<context.item.flag[money_redeem]>!"
+            - narrate "<gold>You redeemed a <context.item.display><reset><gold> for <green>$<context.item.flag[money_redeem]><gold>!"
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:gold_ingot
 
-tiny_cash_note:
+bank_note_tiny:
     type: item
     material: paper
-    display name: <gold><underline>Tiny Cash Note
+    display name: <gold><underline>Tiny Bank Note
     mechanisms:
         hides: all
     enchantments:
@@ -49,10 +49,10 @@ tiny_cash_note:
         money_redeem: 10
     allow in material recipes: false
 
-small_cash_note:
+bank_note_small:
     type: item
     material: paper
-    display name: <gold><underline>Small Cash Note
+    display name: <gold><underline>Small Bank Note
     mechanisms:
         hides: all
     enchantments:
@@ -65,10 +65,10 @@ small_cash_note:
         money_redeem: 100
     allow in material recipes: false
 
-medium_cash_note:
+bank_note_medium:
     type: item
     material: book
-    display name: <blue><underline>Medium Cash Note
+    display name: <blue><underline>Medium Bank Note
     mechanisms:
         hides: all
     enchantments:
@@ -81,10 +81,10 @@ medium_cash_note:
         money_redeem: 1000
     allow in material recipes: false
 
-large_cash_note:
+bank_note_large:
     type: item
     material: book
-    display name: <blue><underline>Large Cash Note
+    display name: <blue><underline>Large Bank Note
     mechanisms:
         hides: all
     enchantments:
