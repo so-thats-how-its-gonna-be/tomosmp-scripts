@@ -30,6 +30,7 @@ redeem_cash_note:
             - money give <player> quantity:<context.item.flag[money_redeem]>
             - ~log type:info file:dlogs/money.log "<player.name> redeemed a <context.item.display.strip_color.if_null[unknown bank note]> for $<context.item.flag[money_redeem]>!"
             - narrate "<gold>You redeemed a <context.item.display><reset><gold> for <green>$<context.item.flag[money_redeem]><gold>!"
+            - narrate "<gold>Your balance is now <green>$<player.money.as_money><gold>!"
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:gold_ingot
 
@@ -74,7 +75,7 @@ bank_note_medium:
     enchantments:
         - UNBREAKING:1
     lore:
-        - <white>$1,000.00
+        - <white>$1000.00
         - <white>Right click to redeem.
     flags:
         uuid: <util.random_uuid>
@@ -90,7 +91,7 @@ bank_note_large:
     enchantments:
         - UNBREAKING:1
     lore:
-        - <white>$10,000.00
+        - <white>$10000.00
         - <white>Right click to redeem.
     flags:
         uuid: <util.random_uuid>
