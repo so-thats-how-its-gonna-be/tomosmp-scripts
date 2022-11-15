@@ -28,8 +28,8 @@ redeem_cash_note:
             - flag server money.redeemed_uuids:->:<context.item.flag[uuid]>
             - take iteminhand quantity:1
             - money give <player> quantity:<context.item.flag[money_redeem]>
-            - ~log type:info file:dlogs/money.log "<proc[time_format]> <player.name> redeemed a <context.item.name.strip_color.if_null[unknown cash note]> for $<context.item.flag[money_redeem]>!"
-            - narrate "<gold>You redeemed a <context.item.name> for <green>$<context.item.flag[money_redeem]><gold>!"
+            - ~log type:info file:dlogs/money.log "<proc[time_format]> <player.name> redeemed a <context.item.display.strip_color.if_null[unknown cash note]> for $<context.item.flag[money_redeem]>!"
+            - narrate "<gold>You redeemed a <context.item.display> for <green>$<context.item.flag[money_redeem]><gold>!"
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:gold_ingot
 
