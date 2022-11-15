@@ -17,6 +17,6 @@ blazing_purpose:
     type: world
     events:
         on zombified_piglin spawns because NATURAL:
-            - stop if:<util.random_chance[90]>
+            - stop if:<util.random_chance[75]>
             - determine passively cancelled
             - spawn blaze <context.location> reason:CUSTOM
