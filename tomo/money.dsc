@@ -2,6 +2,7 @@ money4mcmmo:
     type: world
     events:
         after mcmmo player levels up skill:
+            - stop if:<server.flag[tomo.features.mcmmo_cash].not>
             - stop if:<context.skill.equals[repair]>
             - stop if:<player.flag[mcmmo.<context.skill.to_lowercase>.top_level].is_less_than_or_equal_to[<context.level>].if_null[false]>
             - flag <player> mcmmo.<context.skill.to_lowercase>.top_level:<context.level>
@@ -15,6 +16,7 @@ money4fishing:
     type: world
     events:
         on player fishes item bukkit_priority:HIGH:
+            - stop if:<server.flag[tomo.features.fishing_bank_notes].not>
             - stop if:<player.mcmmo.level[fishing].is_less_than[30]>
             - if <util.random_chance[5]>:
                 - define item <item[bank_note_tiny]>
@@ -37,6 +39,7 @@ redeem_cash_note:
     type: world
     events:
         on player right clicks block with:item_flagged:money_redeem:
+            - stop if:<server.flag[tomo.features.redeeming_bank_notes].not>
             - determine passively cancelled
             - flag server money.redeemed_uuids:<list[]> if:<server.has_flag[money.redeemed_uuids].not>
             - if <context.item.flag[money_redeem].is_integer.not> || <context.item.has_flag[uuid].not> || <context.item.script.exists.not> || <server.flag[money.redeemed_uuids].contains[<context.item.flag[uuid]>].if_null[false]>:
