@@ -19,3 +19,23 @@ smithers_index:
     - <green>Tinted Glass<n><gray>Smithing Table<n><reset>Glass + Amethyst Shard
     - <green>Candle<n><gray>Smithing Table<n><reset>Honeycomb + Stick OR String
     - <green>Soul Torch<n><gray>Smithing Table<n><reset>Torch + Soul Sand
+
+smithers_index_item:
+    type: item
+    material: book
+    display name: <gray>Smither's Index
+    lore:
+        - <gray>Right click while holding to open the Smither's Index!
+    recipes:
+        1:
+            type: smithing
+            base: book
+            upgrade: redstone
+
+smithers_index_open:
+    type: world
+    debug: false
+    events:
+        on player right clicks block with:smiters_index_item:
+            - determine passively cancelled
+            - adjust <player> show_book:smithers_index
