@@ -35,7 +35,10 @@ redeem_cash_note:
     type: world
     events:
         on player right clicks block with:item_flagged:money_redeem:
-            - stop if:<server.flag[tomo.features.redeeming_bank_notes].not>
+            - if <server.flag[tomo.features.redeeming_bank_notes].not>:
+                - narrate "<red><bold>Bank notes are not allowed to be cashed out right now!"
+                - narrate "<red><bold>Ask a staff member for more information."
+                - stop
             - determine passively cancelled
             - flag server money.redeemed_uuids:<list[]> if:<server.has_flag[money.redeemed_uuids].not>
             - if <context.item.flag[money_redeem].is_integer.not> || <context.item.has_flag[uuid].not> || <context.item.script.exists.not> || <server.flag[money.redeemed_uuids].contains[<context.item.flag[uuid]>].if_null[false]>:
