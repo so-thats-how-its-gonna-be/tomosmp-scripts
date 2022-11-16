@@ -24,6 +24,10 @@ smithers_index_item:
     type: item
     material: book
     display name: <gray>Smither's Index
+    enchantments:
+        - UNBREAKING:1
+    mechanisms:
+        hides: all
     lore:
         - <gray>Right click while holding to open the Smither's Index!
     recipes:
@@ -36,6 +40,6 @@ smithers_index_open:
     type: world
     debug: true
     events:
-        on player right clicks block with:smiters_index_item:
+        on player right clicks block with:smithers_index_item:
             - determine passively cancelled
             - adjust <player> show_book:smithers_index
