@@ -63,7 +63,7 @@ redeem_cash_note:
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:<list[emerald|gold_ingot|diamond].random>
 
-bank_note:
+bank_note_custom:
     type: item
     material: paper
     display name: <gold><underline>Custom Bank Note
