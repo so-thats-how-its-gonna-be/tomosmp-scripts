@@ -36,3 +36,31 @@ no_afk_fishing:
         on fishing_hook interacts with *_plate:
             - stop if:<server.flag[tomo.features.no_afk_fishing].not>
             - determine cancelled
+
+#Make minecarts *faster*
+better_minecarts:
+    type: world
+    events:
+        after mine* spawns:
+            - stop if:<server.flag[tomo.features.new_minecarts_have_better_speed].not>
+            - adjust <context.entity> speed:<context.entity.speed.mul[2]>
+
+disable_explosions_outside_nether:
+    type: world
+    events:
+        on entity explodes:
+            - stop if:<server.flag[tomo.features.disable_explosions_outside_nether].not>
+            - stop if:<context.location.world.environment.equals[NETHER]>
+            - determine <list[]>
+        on block explodes:
+            - stop if:<server.flag[tomo.features.disable_explosions_outside_nether].not>
+            - stop if:<context.location.world.environment.equals[NETHER]>
+            - determine <list[]>
+
+no_fire_tick:
+    type: world
+    events:
+        on block spreads type:fire:
+            - stop if:<server.flag[tomo.features.no_fire_tick].not>
+            - determine cancelled
+

@@ -57,6 +57,9 @@ define_features:
                     fishing_bank_notes: true
                     mcmmo_cash: true
                     redeeming_bank_notes: true
+                    new_minecarts_have_better_speed: true
+                    disable_explosions_outside_nether: true
+                    no_fire_tick: true
                 - flag server tomo.features:<[features]>
                 - foreach <[features]> as:value key:feature:
                     - announce to_console "<&a>Feature <&e><[feature]><&a> set to <&e><[value]><&a>!"
