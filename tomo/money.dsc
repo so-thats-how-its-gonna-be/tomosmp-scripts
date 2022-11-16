@@ -55,11 +55,13 @@ redeem_cash_note:
             - take iteminhand quantity:1
             - money give <player> quantity:<context.item.flag[money_redeem]>
             - ~log type:info file:dlogs/money.log "<player.name> redeemed a <context.item.display.strip_color.if_null[unknown bank note]> for $<context.item.flag[money_redeem]>!"
+            - narrate " "
             - narrate "<gold>You redeemed a <context.item.display><reset><gold> for <green>$<context.item.flag[money_redeem]><gold>!"
             - narrate " "
             - narrate "<gold>Your balance is now <green>$<player.money.as_money><gold>!"
+            - narrate " "
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
-            - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:<list[emerald|gold_ingot|diamond].random[1]>
+            - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:<list[emerald|gold_ingot|diamond].random>
 
 bank_note:
     type: item
