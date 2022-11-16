@@ -30,6 +30,6 @@ fc_soul_torch:
         1:
             type: smithing
             base: torch
-            upgrade: sould_sand
+            upgrade: soul_sand
 
 
