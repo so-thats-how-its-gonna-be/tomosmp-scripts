@@ -13,9 +13,9 @@ auto_actions:
 #fuck
 toggle_features:
     type: command
-    name: togglefeatures
+    name: togglefeature
     description: Enable or disable dScript added features
-    usage: /togglefeatures <&lt>feature|quickclear<&gt> <&lt>true|false<&gt>
+    usage: /togglefeature <&lt>feature|quickclear<&gt> <&lt>true|false<&gt>
     permission: dscript.tomo.op.togglefeatures
     tab completions:
         1: <server.flag[tomo.features].keys.include[quickclear]>
