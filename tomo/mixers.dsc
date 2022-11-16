@@ -63,4 +63,6 @@ no_fire_tick:
         on block spreads type:fire:
             - stop if:<server.flag[tomo.features.no_fire_tick].not>
             - determine cancelled
-
+        on block burns:
+            - stop if:<server.flag[tomo.features.no_fire_tick].not>
+            - determine cancelled
