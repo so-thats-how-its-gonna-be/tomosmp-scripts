@@ -34,7 +34,7 @@ smithers_index_item:
 
 smithers_index_open:
     type: world
-    debug: false
+    debug: true
     events:
         on player right clicks block with:smiters_index_item:
             - determine passively cancelled
