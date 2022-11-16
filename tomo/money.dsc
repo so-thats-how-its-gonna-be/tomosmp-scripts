@@ -61,6 +61,22 @@ redeem_cash_note:
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:<list[emerald|gold_ingot|diamond].random[1]>
 
+bank_note:
+    type: item
+    material: paper
+    display name: <gold><underline>Custom Bank Note
+    mechanisms:
+        hides: all
+    enchantments:
+        - UNBREAKING:1
+    lore:
+        - <white>$<script.data_key[flags].get[money_redeem].as_money>
+        - <white>Right click to redeem.
+    flags:
+        uuid: <util.random_uuid>
+        money_redeem: 10
+    allow in material recipes: false
+
 bank_note_tiny:
     type: item
     material: paper
