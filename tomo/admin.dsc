@@ -59,7 +59,8 @@ define_features:
                     redeeming_bank_notes: true
                 - flag server tomo.features:<[features]>
                 - foreach <[features]> as:value key:feature:
-                    - announce to_console to_ops "<&a>Feature <&e><[feature]><&a> set to <&e><[value]><&a>!"
+                    - announce to_console "<&a>Feature <&e><[feature]><&a> set to <&e><[value]><&a>!"
+                    - announce to_ops "<&a>Feature <&e><[feature]><&a> set to <&e><[value]><&a>!"
 
 reload_override:
     type: world
