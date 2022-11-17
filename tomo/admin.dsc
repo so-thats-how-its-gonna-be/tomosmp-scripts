@@ -93,4 +93,10 @@ reload_override:
             - execute as_op "graves reload"
             - narrate "Reloaded Graves"
             - wait <util.random.int[1].to[5]>t
+            - execute as_op "co reload"
+            - narrate "Reloaded CoreProtect"
+            - wait <util.random.int[1].to[5]>t
+            - execute as_op "geyser reload"
+            - narrate "Reloaded Geyser"
+            - wait <util.random.int[1].to[5]>t
             - narrate "<green><bold>Reloaded all plugins! :)"
