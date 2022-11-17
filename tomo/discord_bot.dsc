@@ -17,3 +17,6 @@ discord_bot:
             - define message "<dark_aqua>[Discord] <white><context.new_message.author.name>: <white><context.new_message.text_display>"
             - announce <[message]>
             - announce to_console <[message]>
+        after player dies:
+            - define message **<context.message.strip_color>**
+            - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
