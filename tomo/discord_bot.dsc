@@ -20,3 +20,9 @@ discord_bot:
         after player dies:
             - define message **<context.message.strip_color>**
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
+        after player joins:
+            - define message **<context.message.strip_color>**
+            - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
+        after player quits:
+            - define message **<context.message.strip_color>**
+            - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
