@@ -14,6 +14,6 @@ discord_bot:
         after discord message received:
             - stop if:<context.author.id.equals[<server.flag[tomobot.self_id]>]>
             - stop if:<context.channel.id.equals[<server.flag[tomobot.chat_link_channel]>].not>
-            - define message "<dark_aqua>[Discord] <white><context.author.name>: <white><context.message.text>"
+            - define message "<dark_aqua>[Discord] <white><context.author.name>: <white><context.new_message.text_display>"
             - announce <[message]>
             - announce to_console <[message]>
