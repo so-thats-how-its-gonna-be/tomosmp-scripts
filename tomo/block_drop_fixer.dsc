@@ -1,5 +1,6 @@
 block_drop_fixer:
     type: world
+    debug: false
     events:
         on player breaks block:
             - stop if:<player.gamemode.equals[CREATIVE]>
