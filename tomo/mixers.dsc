@@ -43,9 +43,9 @@ better_minecarts:
     debug: true
     events:
         after vehicle created:
-            - stop if:<context.entity.entity_type.advanced_matches[MINECART|*_MINECART].not>
+            - stop if:<context.vehicle.entity_type.advanced_matches[MINECART|*_MINECART].not>
             - stop if:<server.flag[tomo.features.new_minecarts_have_better_speed].not>
-            - adjust <context.entity> speed:<context.entity.speed.mul[2]>
+            - adjust <context.vehicle> speed:<context.vehicle.speed.mul[2]>
 
 disable_explosions_outside_nether:
     type: world
