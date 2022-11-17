@@ -15,26 +15,39 @@ toggle_features:
     type: command
     name: togglefeature
     description: Enable or disable dScript added features
-    usage: /togglefeature <&lt>feature|quickclear<&gt> <&lt>true|false<&gt>
+    usage: /togglefeature <&lt>feature|quickclear|destroy<&gt> <&lt>true|false<&gt>
     permission: dscript.tomo.op.togglefeatures
     tab completions:
-        1: <server.flag[tomo.features].keys.include[quickclear]>
+        1: <server.flag[tomo.features].keys.include[quickclear|destroy]>
         2: <list[true|false]>
     script:
         - if <context.args.get[1]> == quickclear:
             - flag server tomo.features:!
             - reload
-            - narrate "<&e>Quickcleared all features and set them to their default values."
+            - narrate "<&e>Cleared all features and set them to their default values."
             - stop
-        - else if <context.args.size> < 2:
+        - else if <context.args.get[1]> == destroy:
+            - flag server tomo.features:!
+            - narrate "<&c>Destroyed all features <bold>without reloading<reset><&c>, this will break something!"
+            - stop
+        - else if <context.args.size> == 1 && <context.args.get[1]> in <server.flag[tomo.features].keys>:
+            - narrate "<&a>Feature <&e><context.args.get[1]><&a> is currently <&e><server.flag[tomo.features].get[<context.args.get[1]>]><&a>."
+            - stop
+        - else if <context.args.size> == 0:
+            - narrate "<&c>No arguments provided."
             - narrate <&c><script.data_key[usage]>
             - stop
-        - else if <context.args.get[1]> not in <server.flag[tomo.features]>:
+        - else if <context.args.size> > 2:
+            - narrate "<&c>Too many arguments: <&e><context.args.get[3].to[<context.args.size>]>"
+            - narrate <&c><script.data_key[usage]>
+            - stop
+        - else if <context.args.get[1]> not in <server.flag[tomo.features].keys>:
             - narrate "<&c>Invalid feature: <&e><context.args.get[1]>"
             - narrate <&c><script.data_key[usage]>
             - stop
         - else if <context.args.get[2].is_boolean.not>:
             - narrate "<&c>Invalid value: <&e><context.args.get[2]>"
+            - narrate "<&c>Must be <&e>true<&c> or <&e>false<&c>."
             - narrate <&c><script.data_key[usage]>
             - stop
         - else:
