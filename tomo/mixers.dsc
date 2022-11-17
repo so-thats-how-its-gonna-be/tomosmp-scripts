@@ -40,8 +40,9 @@ no_afk_fishing:
 #Make minecarts *faster*
 better_minecarts:
     type: world
+    debug: true
     events:
-        after *_minecart|minecart spawns because *:
+        after *_minecart|minecart spawns:
             - stop if:<server.flag[tomo.features.new_minecarts_have_better_speed].not>
             - adjust <context.entity> speed:<context.entity.speed.mul[2]>
 
