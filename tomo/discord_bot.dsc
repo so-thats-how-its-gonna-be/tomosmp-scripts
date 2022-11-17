@@ -6,6 +6,8 @@ discord_bot:
     events:
         after server start:
             - ~discordconnect id:tomobot token:<secret[tomobot_token]>
+            - define message "**Server started!**"
+            - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player chats:
             - define message "`<player.name>`: <context.message>"
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
