@@ -14,8 +14,21 @@ discord_bot:
         after discord message received:
             - stop if:<context.new_message.author.id.equals[<server.flag[tomobot.self_id]>]>
             - stop if:<context.channel.id.equals[<server.flag[tomobot.chat_link_channel]>].not>
-            - if <context.new_message.text.starts_with[b!]> && <context.new_message.author.permissions.contains_any[administrator]>:
-                - define command
+            - if <context.new_message.text.starts_with[b!]> && <context.new_message.author.permissions[<context.new_message.channel.group>].contains_any[administrator]>:
+                - define command <context.new_message.text.after[b!].split_args>
+                - choose <[command].get[1]>:
+                    - case execute:
+                        - execute as_server <[command].get[2]>
+                        - ~discordmessage id:tomobot channel:<context.channel.id> "Executed `<[command].get[2]>`"
+                        - stop
+                    - case reload:
+                        - reload
+                        - ~discordmessage id:tomobot channel:<context.channel.id> Reloaded!
+                        - stop
+                    - case kick:
+                        - kick <[command].get[2]> reason:<[command].get[3].if_null[]>
+                        - ~discordmessage id:tomobot channel:<context.channel.id> "Kicked `<[command].get[2]>` with reason `<[command].get[3]>`!"
+                        - stop
             - define message "<dark_aqua>[Discord] <white><context.new_message.author.name>: <white><context.new_message.text_display>"
             - announce <[message]>
             - announce to_console <[message]>
