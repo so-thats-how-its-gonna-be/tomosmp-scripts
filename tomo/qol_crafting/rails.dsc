@@ -6,7 +6,7 @@ fc_detector_rail:
         1:
             type: shapeless
             input: rail|stone_pressure_plate|redstone
-            outpute_quantity: 1
+            output_quantity: 1
 
 fc_activator_rail:
     type: item
@@ -16,4 +16,4 @@ fc_activator_rail:
         1:
             type: shapeless
             input: rail|stick|redstone_torch
-            outpute_quantity: 1
+            output_quantity: 1
