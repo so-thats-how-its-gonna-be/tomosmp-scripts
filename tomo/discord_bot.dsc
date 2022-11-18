@@ -6,7 +6,7 @@ discord_bot:
     events:
         after server start:
             - ~discordconnect id:tomobot token:<secret[tomobot_token]>
-            - define message "`Server started!`"
+            - define message "__Server started!__"
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player chats:
             - define message "`<player.name>`: <context.message>"
@@ -51,14 +51,14 @@ discord_bot:
             - announce <[message]>
             - announce to_console <[message]>
         after player dies:
-            - define message `<context.message.strip_color>`
+            - define message __<context.message.strip_color>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player joins:
-            - define message `<context.message.strip_color>`
+            - define message __<context.message.strip_color>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player quits:
-            - define message `<context.message.strip_color>`
+            - define message __<context.message.strip_color>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         on shutdown:
-            - define message "`Server stopped!`"
+            - define message "__Server stopped!__"
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
