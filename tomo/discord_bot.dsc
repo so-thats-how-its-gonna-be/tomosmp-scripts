@@ -19,11 +19,11 @@ discord_bot:
                 - define command <[full_command].split[ ].get[1]>
                 - define args <[full_command].split.remove[1]>
                 - choose <[command]>:
-                    - case execute:
+                    - case execute ex e:
                         - execute as_server <[args].space_separated>
                         - ~discordmessage id:tomobot channel:<context.channel.id> "Executed: <n>`/<[args].space_separated>`<n>Check console for output."
                         - stop
-                    - case reload:
+                    - case reload rl:
                         - run reload_as_server
                         - ~discordmessage id:tomobot channel:<context.channel.id> Reloaded!
                         - stop
