@@ -1,5 +1,6 @@
 money4mcmmo:
     type: world
+    debug: false
     events:
         after mcmmo player levels up skill:
             - stop if:<server.flag[tomo.features.mcmmo_cash].not>
@@ -14,6 +15,7 @@ money4mcmmo:
 
 money4fishing:
     type: world
+    debug: false
     events:
         on player fishes item bukkit_priority:HIGH:
             - stop if:<server.flag[tomo.features.fishing_bank_notes].not>
@@ -33,6 +35,7 @@ money4fishing:
 
 redeem_cash_note:
     type: world
+    debug: false
     events:
         on player right clicks block with:item_flagged:money_redeem:
             - if <server.flag[tomo.features.redeeming_bank_notes].not>:

@@ -13,6 +13,7 @@ auto_actions:
 #fuck
 toggle_features:
     type: command
+    debug: false
     name: togglefeature
     description: Enable or disable dScript added features
     usage: /togglefeature <&lt>feature|quickclear|destroy<&gt> <&lt>true|false<&gt>

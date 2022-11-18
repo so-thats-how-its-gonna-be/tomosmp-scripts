@@ -1,6 +1,6 @@
 enchantment_mods:
     type: world
-    debug: true
+    debug: false
     events:
         #This removes the level cap that says "Too expensive!" within anvils, so now there is no enchantment limit!
         on player prepares anvil craft item:

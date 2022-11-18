@@ -10,6 +10,7 @@ no_portal:
 
 no_totems:
     type: world
+    debug: false
     events:
         on evoker dies:
             - stop if:<server.flag[tomo.features.no_totems].not>
@@ -17,6 +18,7 @@ no_totems:
 
 natural_blazes:
     type: world
+    debug: false
     events:
         on zombified_piglin spawns because NATURAL:
             - stop if:<server.flag[tomo.features.natural_blazes].not>
@@ -26,6 +28,7 @@ natural_blazes:
 
 no_afk_fishing:
     type: world
+    debug: false
     events:
         on player right clicks note_block|iron_trapdoor|*_sign with:fishing_rod:
             - stop if:<server.flag[tomo.features.no_afk_fishing].not>
@@ -40,7 +43,7 @@ no_afk_fishing:
 #Make minecarts *faster*
 better_minecarts:
     type: world
-    debug: true
+    debug: false
     events:
         after vehicle created:
             - stop if:<context.vehicle.entity_type.advanced_matches[MINECART|*_MINECART].not>
@@ -49,6 +52,7 @@ better_minecarts:
 
 disable_explosions_outside_nether:
     type: world
+    debug: false
     events:
         on entity explodes:
             - stop if:<server.flag[tomo.features.disable_explosions_outside_nether].not>
@@ -61,6 +65,7 @@ disable_explosions_outside_nether:
 
 no_fire_tick:
     type: world
+    debug: false
     events:
         on block spreads type:fire:
             - stop if:<server.flag[tomo.features.no_fire_tick].not>
