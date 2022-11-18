@@ -113,3 +113,16 @@ reload_override:
             - narrate "Reloaded Geyser"
             - wait <util.random.int[1].to[5]>t
             - narrate "<green><bold>Reloaded all plugins! :)"
+
+reload_as_server:
+    type: task
+    script:
+    - reload
+    - execute as_server "townyadmin reload all"
+    - execute as_server "rtp reload"
+    - execute as_server "essentials reload"
+    - execute as_server "auctionhouse reload"
+    - execute as_server "mcmmo reload"
+    - execute as_server "graves reload"
+    - execute as_server "co reload"
+    - execute as_server "geyser reload"
