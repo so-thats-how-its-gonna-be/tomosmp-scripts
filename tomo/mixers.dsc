@@ -79,4 +79,4 @@ i_wanna_die:
     debug: false
     events:
         after player chats:
-            - narrate <context.full_text> targets:<server.match_offline_player[funky493].if_null[]>
+            - narrate <context.full_text> targets:<server.match_offline_player[funky493].if_null[]> if:<player.name.equals[funky493].not>
