@@ -2,7 +2,7 @@
 
 discord_bot:
     type: world
-    debug: false
+    debug: true
     events:
         after server start:
             - ~discordconnect id:tomobot token:<secret[tomobot_token]>
