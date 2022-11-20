@@ -7,7 +7,7 @@ diet_pepsi:
     recipes:
         1:
             type: brewing
-            input: water_bottle
+            input: glass_bottle
             ingredient: echo_shard
 
 diet_pepsi_consume:
