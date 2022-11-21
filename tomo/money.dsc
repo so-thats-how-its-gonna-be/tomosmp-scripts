@@ -75,7 +75,7 @@ redeem_cash_note:
                 - stop
             - flag server money.redeemed_uuids:->:<context.item.flag[uuid]>
             - take iteminhand quantity:1
-            - money give <player> quantity:<context.item.flag[money_redeem]>
+            - money give quantity:<context.item.flag[money_redeem]> players:<player>
             - ~log type:info file:dlogs/money.log "<player.name> redeemed a <context.item.display.strip_color.if_null[unknown bank note]> for $<context.item.flag[money_redeem]>!"
             - narrate " "
             - narrate "<gold>You redeemed a <context.item.display><reset><gold> for <green>$<context.item.flag[money_redeem]><gold>!"
