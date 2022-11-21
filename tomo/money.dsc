@@ -5,7 +5,7 @@ money4mcmmo:
         after mcmmo player levels up skill:
             - stop if:<server.flag[tomo.features.mcmmo_cash].not>
             - stop if:<context.skill.equals[repair]>
-            - stop if:<player.flag[mcmmo.<context.skill.to_lowercase>.top_level].is_less_than_or_equal_to[<context.new_level>].if_null[false]>
+            - stop if:<player.flag[mcmmo.<context.skill.to_lowercase>.top_level].is_more_than_or_equal_to[<context.new_level>].if_null[false]>
             - flag <player> mcmmo.<context.skill.to_lowercase>.top_level:<context.new_level>
             - wait 15t
             - define money_gain <context.new_level.mul[<element[0.25].add[<util.random.decimal[0].to[1]>]>].as_money>
