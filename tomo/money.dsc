@@ -8,7 +8,7 @@ money4mcmmo:
             - stop if:<player.flag[mcmmo.<context.skill.to_lowercase>.top_level].is_more_than_or_equal_to[<context.new_level>].if_null[false]>
             - flag <player> mcmmo.<context.skill.to_lowercase>.top_level:<context.new_level>
             - wait 15t
-            - define money_gain <context.new_level.mul[<element[0.25].add[<util.random.decimal[0].to[1]>]>].as_money>
+            - define money_gain <element[5].as_money>
             - money give players:<player> quantity:<[money_gain]>
             - narrate "<gold><bold>You earned $<[money_gain]> for reaching level <blue><bold><context.new_level> <gold><bold>in <green><bold><context.skill.to_titlecase><gold><bold>!"
             - playsound <player> sound:entity_experience_orb_pickup volume:1 pitch:1
