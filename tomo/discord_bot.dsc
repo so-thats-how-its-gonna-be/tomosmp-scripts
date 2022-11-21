@@ -51,7 +51,7 @@ discord_bot:
             - announce <[message]>
             - announce to_console <[message]>
         after player dies:
-            - define message __<context.message.strip_color.replace_text[<player.name>].with[`<player.name>`]>__
+            - define message __<context.message.strip_color.replace_text[<player.name>].with[`<player.name>`].replace_text[regex:<&ss><&lb>.*<&rb>]>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player joins:
             - define message __<context.message.strip_color.replace_text[<player.name>].with[`<player.name>`]>__
