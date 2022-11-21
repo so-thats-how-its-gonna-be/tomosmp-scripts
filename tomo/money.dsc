@@ -65,6 +65,14 @@ redeem_cash_note:
             - playsound <player> sound:entity_player_levelup volume:1 pitch:2
             - playeffect at:<player.eye_location> effect:item_crack quantity:100 offset:0.5,0.5,0.5 special_data:<list[emerald|gold_ingot|diamond].random>
 
+no_totems:
+    type: world
+    debug: false
+    events:
+        on evoker dies:
+            - stop if:<server.flag[tomo.features.no_totems].not>
+            - determine <list[gold_ingot|emerald|diamond|bank_note_small|bank_note_tiny].random[3]>
+
 bank_note_custom:
     type: item
     material: paper

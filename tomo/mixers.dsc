@@ -8,14 +8,6 @@ no_portal:
             - playsound <player> sound:entity_villager_no sound_category:master
             - determine cancelled
 
-no_totems:
-    type: world
-    debug: false
-    events:
-        on evoker dies:
-            - stop if:<server.flag[tomo.features.no_totems].not>
-            - determine <list[gold_ingot|emerald|diamond|emerald|gold_ingot].random[3]>
-
 natural_blazes:
     type: world
     debug: false
