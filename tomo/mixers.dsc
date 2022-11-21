@@ -22,7 +22,7 @@ natural_blazes:
     events:
         on zombified_piglin spawns because NATURAL:
             - stop if:<server.flag[tomo.features.natural_blazes].not>
-            - stop if:<util.random_chance[75]>
+            - stop if:<util.random_chance[90]>
             - determine passively cancelled
             - spawn blaze <context.location> reason:CUSTOM
 
