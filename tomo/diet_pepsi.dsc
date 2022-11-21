@@ -16,6 +16,6 @@ diet_pepsi_consume:
     events:
         after player consumes diet_pepsi:
             - cast speed amplifier:5 duration:30s
-            - cast nausea amplifier:5 duration:30s
-            - cast bad_luck amplifier:5 duration:30s
+            - cast confusion amplifier:5 duration:30s
+            - cast unluck amplifier:5 duration:120s
 
