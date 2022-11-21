@@ -15,6 +15,7 @@ diet_pepsi_consume:
     debug: false
     events:
         after player consumes diet_pepsi:
-            - hurt 10 <player> cause:MAGIC
             - cast speed amplifier:5 duration:30s
+            - cast nausea amplifier:5 duration:30s
+            - cast bad_luck amplifier:5 duration:30s
 
