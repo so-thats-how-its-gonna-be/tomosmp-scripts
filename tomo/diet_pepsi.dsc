@@ -16,5 +16,5 @@ diet_pepsi_consume:
     events:
         after player consumes diet_pepsi:
             - hurt 10 <player> cause:MAGIC
-            - cast speed amplifier:5 duration:10s
+            - cast speed amplifier:5 duration:30s
 
