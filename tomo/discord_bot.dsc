@@ -51,13 +51,13 @@ discord_bot:
             - announce <[message]>
             - announce to_console <[message]>
         after player dies:
-            - define message __<context.message.strip_color>__
+            - define message __<context.message.strip_color.replace_text[<player.name>].with[`<player.name>`]>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player joins:
-            - define message __<context.message.strip_color>__
+            - define message __<context.message.strip_color.replace_text[<player.name>].with[`<player.name>`]>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         after player quits:
-            - define message __<context.message.strip_color>__
+            - define message __<context.message.strip_color.replace_text[<player.name>].with[`<player.name>`]>__
             - ~discordmessage id:tomobot channel:<server.flag[tomobot.chat_link_channel]> <[message]>
         on shutdown:
             - define message "__Server stopped!__"
