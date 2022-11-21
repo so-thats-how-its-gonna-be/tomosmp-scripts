@@ -20,11 +20,11 @@ money4fishing:
         on player fishes item bukkit_priority:HIGH:
             - stop if:<server.flag[tomo.features.fishing_bank_notes].not>
             - stop if:<player.mcmmo.level[fishing].is_less_than[30]>
-            - if <util.random_chance[5]>:
+            - if <util.random_chance[10]>:
                 - define item <item[bank_note_tiny]>
-            - else if <util.random_chance[1]>:
+            - else if <util.random_chance[5]>:
                 - define item <item[bank_note_small]>
-            - else if <util.random_chance[0.05]>:
+            - else if <util.random_chance[1]>:
                 - define item <item[bank_note_medium]>
             - else if <util.random_chance[0.01]>:
                 - define item <item[bank_note_large]>
@@ -32,6 +32,26 @@ money4fishing:
                 - stop
             - narrate "<gold><bold>You caught a <reset><[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money>!"
             - determine passively <[item]>
+
+money4farming:
+    type: world
+    debug: false
+    events:
+        on player breaks material_flagged:farmable location_flagged:!farming_money_cooldown bukkit_priority:HIGH:
+            - stop if:<server.flag[tomo.features.farming_bank_notes].not>
+            - stop if:<player.mcmmo.level[herbalism].is_less_than[30]>
+            - stop if:<context.material.age.equals[7].not.if_null[true]>
+            - flag <context.location> farming_money_cooldown expire:5m
+            - if <util.random_chance[1.5]>:
+                - define item <item[bank_note_tiny]>
+            - else if <util.random_chance[0.5]>:
+                - define item <item[bank_note_small]>
+            - else if <util.random_chance[0.1]>:
+                - define item <item[bank_note_medium]>
+            - else:
+                - stop
+            - narrate "<gold><bold>You found a <reset><[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money> in your <context.material.name>!"
+            - determine passively <list_single[<[item]>]>
 
 redeem_cash_note:
     type: world

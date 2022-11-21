@@ -62,18 +62,19 @@ define_features:
         after script reload:
             - if <server.has_flag[tomo.features].not>:
                 - definemap features:
-                    no_end: true
-                    natural_blazes: true
-                    no_totems: true
-                    no_afk_fishing: true
                     block_drop_fixer: true
-                    no_mending: true
+                    disable_explosions_outside_nether: true
+                    farming_bank_notes: true
                     fishing_bank_notes: true
                     mcmmo_cash: true
-                    redeeming_bank_notes: true
+                    natural_blazes: true
                     new_minecarts_have_better_speed: true
-                    disable_explosions_outside_nether: true
+                    no_afk_fishing: true
+                    no_end: true
                     no_fire_tick: true
+                    no_mending: true
+                    no_totems: true
+                    redeeming_bank_notes: true
                 - flag server tomo.features:<[features]>
                 - foreach <[features]> as:value key:feature:
                     - announce to_console "<&a>Feature <&e><[feature]><&a> set to <&e><[value]><&a>!"
