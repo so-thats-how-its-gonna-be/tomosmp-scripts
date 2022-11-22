@@ -5,6 +5,12 @@ time_format:
 
 item_name:
     type: procedure
-    definitions: item
+    definitions: name
     script:
-        - determine <&r><[item].as[item].display.if_null[<[item].as[item].material.name.replace_text[_].with[ ].to_titlecase>]><&r>
+        - define item <[name].as[item]>
+        - if <[name]> == *_planks:
+            - determine "<&r>Any Planks<&r>"
+        - else if <[name]> == glowstone:
+            - determine "<&r>Glowstone Block<&r>"
+        - else:
+            - determine <&r><[item].display.if_null[<[item].material.name.replace_text[_].with[ ].to_titlecase>]><&r>
