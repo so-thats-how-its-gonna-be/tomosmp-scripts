@@ -61,6 +61,8 @@ recipes_index_reload:
                         - foreach next
                     - case mob_drop:
                         - define "book_pages:->:<[page_title]><n><&b>Mob Drop<n><&7>Mob(s): <&0><[obtain.input].parse_tag[<[parse_value].replace[_].with[ ].to_titlecase>].separated_by[, ]><&7><n>Chance: <&0><[obtain.chance]>%<&7><n>Quantity: <&0><[obtain.quantity]>"
+                    - case log_stripping:
+                        - define "book_pages:->:<[page_title]><n><&b>Log Stripping<n><&7>Tree: <&0><[obtain.input].replace[_].with[ ].to_titlecase><&7><n>Chance: <&0><[obtain.chance]>%<&7><n>Quantity: <&0><[obtain.quantity]>"
 
             - flag server recipes_index.book_pages:<[book_pages]>
 
