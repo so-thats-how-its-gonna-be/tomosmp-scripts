@@ -1,6 +1,6 @@
 pillager_heart:
     type: item
-    material: fermented_spider_eye
+    material: spider_eye
     display name: <dark_red>Pillager Heart
     lore:
         - <dark_red><italic>Something is wrong.
