@@ -15,4 +15,4 @@ paper_bark_drop:
     debug: false
     events:
         after player right clicks birch_log|birch_wood with:*_axe:
-            - drop <item[paper_bark]> <context.location> quantity:<util.random.int[1].to[3]>
+            - drop <item[paper_bark]> <context.location.random_offset[0.1,0.1,0.1]> quantity:<util.random.int[1].to[3]>
