@@ -7,4 +7,4 @@ item_name:
     type: procedure
     definitions: item
     script:
-        - determine <&r><[item].display.if_null[<[item].material.name.replace_text[_].with[ ].to_titlecase>]><&r>
+        - determine <&r><[item].as[item].display.if_null[<[item].as[item].material.name.replace_text[_].with[ ].to_titlecase>]><&r>
