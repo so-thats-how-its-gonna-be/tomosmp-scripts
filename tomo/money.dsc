@@ -31,7 +31,7 @@ money4fishing:
             - else:
                 - stop
             - narrate "<gold><bold>You caught a <reset><[item].display><gold><bold> worth $<[item].flag[money_redeem].as_money>!"
-            - determine passively <[item]>
+            - determine passively CAUGHT:<[item]>
 
 money4farming:
     type: world
