@@ -9,7 +9,7 @@ recipes_index_reload:
 
             - foreach <[craft_scripts]> as:script:
                 - define recipes <[script].data_key[recipes]>
-                - foreach <[recipes]> as:recipe_id key:recipe_data:
+                - foreach <[recipes]> as:recipe_data key:recipe_id:
                     - define add_recipe <[recipe_data].with[output].as[<item[<[script].original_name>]>]>
                     - define add_recipe.output_quantity:1 if:<[add_recipe].get[output_quantity].exists.not>
                     - define valid_recipes:->:<[add_recipe]>
