@@ -44,7 +44,12 @@ recipes_index_open:
     type: task
     debug: false
     script:
-        - adjust <player> show_book:<item[written_book].with_single[book=<map[pages=<server.flag[recipes_index.book_pages]>]>]>
+        - definemap book:
+            pages: <server.flag[recipes_index.book_pages]>
+            title: Recipes Index
+            author: funky493
+        - define written_book <item[written_book].with_single[book=<[book]>]>
+        - adjust <player> show_book:<[written_book]>
 
 recipes_index_dummy:
     type: item
