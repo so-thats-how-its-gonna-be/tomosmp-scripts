@@ -1,6 +1,6 @@
 recipes_index_reload:
     type: world
-    debug: true
+    debug: false
     events:
         after script reload:
 
