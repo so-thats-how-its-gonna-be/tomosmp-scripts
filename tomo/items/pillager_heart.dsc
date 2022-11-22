@@ -24,3 +24,11 @@ pillager_heart_consume:
                 - playsound <player.eye_location> sound:entity_warden_heartbeat sound_category:master volume:2 pitch:0.5
                 - playeffect at:<player.eye_location> effect:block_crack special_data:crimson_nylium quantity:50 offset:0.5,0.5,0.5
                 - wait 1s
+
+pillager_heart_drop:
+    type: world
+    debug: false
+    events:
+        on pillager|evoker|ravager dies:
+            - stop if:<util.random_chance[99]>
+            - determine passively <context.drops.include_single[pillager_heart]>
