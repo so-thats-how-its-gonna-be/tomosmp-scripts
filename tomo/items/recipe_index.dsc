@@ -60,7 +60,7 @@ recipes_index_reload:
                     - default:
                         - foreach next
                     - case mob_drop:
-                        - define "book_pages:->:<[page_title]><n><&b>Mob Drop<n><&7>Mob(s): <[obtain.mob].parse_tag[<[parse_value].to_titlecase>].separated_by[, ]><&7><n>Chance: <[obtain.chance]>%<&7><n> <&7><n>Quantity: <[obtain.quantity]>"
+                        - define "book_pages:->:<[page_title]><n><&b>Mob Drop<n><&7>Mob(s): <&0><[obtain.input].parse_tag[<[parse_value].replace[_].with[ ].to_titlecase>].separated_by[, ]><&7><n>Chance: <&0><[obtain.chance]>%<&7><n>Quantity: <&0><[obtain.quantity]>"
 
             - flag server recipes_index.book_pages:<[book_pages]>
 
