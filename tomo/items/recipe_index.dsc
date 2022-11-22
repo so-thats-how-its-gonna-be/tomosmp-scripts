@@ -45,7 +45,7 @@ recipes_index_open:
     debug: false
     script:
         - definemap book:
-            pages: <server.flag[recipes_index.book_pages].random[9999]>
+            pages: <server.flag[recipes_index.book_pages].alphabetical>
             title: Recipes Index
             author: funky493
         - define written_book <item[written_book].with_single[book=<[book]>]>
