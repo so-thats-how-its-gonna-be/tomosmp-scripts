@@ -29,6 +29,6 @@ pillager_heart_drop:
     type: world
     debug: false
     events:
-        on pillager|evoker|ravager dies:
+        on pillager|evoker|ravager|vindicator dies:
             - stop if:<util.random_chance[99]>
             - determine passively <context.drops.include_single[pillager_heart]>
