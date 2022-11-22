@@ -24,19 +24,19 @@ recipes_index_reload:
                     - default:
                         - foreach next
                     - case stonecutting:
-                        - define "book_pages:->:<[page_title]><n><&7>Stonecutting Recipe<n><&f>Input: <[recipe.input].proc[item_name]><&f><n>"
+                        - define "book_pages:->:<[page_title]><n><&b>Stonecutting Recipe<n><&7>Input: <[recipe.input].proc[item_name]><&7><n>"
                     - case smithing:
-                        - define "book_pages:->:<[page_title]><n><&7>Smithing Recipe<n><&f>Left Side: <[recipe.base].proc[item_name]><&f><n>Right Side: <[recipe.upgrade].proc[item_name]><&f><n>"
+                        - define "book_pages:->:<[page_title]><n><&b>Smithing Recipe<n><&7>Left Side: <[recipe.base].proc[item_name]><&7><n>Right Side: <[recipe.upgrade].proc[item_name]><&7><n>"
                     - case furnace:
-                        - define "book_pages:->:<[page_title]><n><&7>Furnace Recipe<n><&f>Input: <[recipe.input].proc[item_name]><&f><n>"
+                        - define "book_pages:->:<[page_title]><n><&b>Furnace Recipe<n><&7>Input: <[recipe.input].proc[item_name]><&7><n>"
                     - case blast:
-                        - define "book_pages:->:<[page_title]><n><&7>Blast Furnace Recipe<n><&f>Input: <[recipe.input].proc[item_name]><&f><n>"
+                        - define "book_pages:->:<[page_title]><n><&b>Blast Furnace Recipe<n><&7>Input: <[recipe.input].proc[item_name]><&7><n>"
                     - case smoker:
-                        - define "book_pages:->:<[page_title]><n><&7>Smoker Recipe<n><&f>Input: <[recipe.input].proc[item_name]><&f><n>"
+                        - define "book_pages:->:<[page_title]><n><&b>Smoker Recipe<n><&7>Input: <[recipe.input].proc[item_name]><&7><n>"
                     - case campfire:
-                        - define "book_pages:->:<[page_title]><n><&7>Campfire Recipe<n><&f>Input: <[recipe.input].proc[item_name]><&f><n>"
+                        - define "book_pages:->:<[page_title]><n><&b>Campfire Recipe<n><&7>Input: <[recipe.input].proc[item_name]><&7><n>"
                     - case shapeless:
-                        - define "book_pages:->:<[page_title]><n><&7>Shapeless Recipe<n><&f>Input: <n><[recipe.input].parse_tag[<[parse_value].proc[item_name]>].separated_by[<n>]>"
+                        - define "book_pages:->:<[page_title]><n><&b>Shapeless Recipe<n><&7>Input: <n><[recipe.input].parse_tag[<[parse_value].proc[item_name]>].separated_by[<n>]>"
 
             - flag server recipes_index.book_pages:<[book_pages]>
 
