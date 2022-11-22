@@ -8,6 +8,18 @@ pillager_heart:
         - unbreaking:1
     mechanisms:
         hides: all
+    data:
+        obtain:
+            1:
+                type: mob_drop
+                input:
+                    - pillager
+                    - evoker
+                    - ravager
+                    - vindicator
+                #Out of a hundred
+                chance: 1
+                quantity: 1
 
 pillager_heart_consume:
     type: world

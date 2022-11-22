@@ -17,6 +17,7 @@ recipes_index_reload:
             - flag server recipes_index.recipes:<[valid_recipes]>
 
             - define book_pages <list>
+
             - foreach <server.flag[recipes_index.recipes]> as:recipe:
                 - define item_name <[recipe.output].proc[item_name]>
                 - define page_title <[item_name]>
@@ -39,6 +40,27 @@ recipes_index_reload:
                         - define "book_pages:->:<[page_title]><n><&b>Shapeless Recipe<n><&7>Input: <n><[recipe.input].as[list].parse_tag[<[parse_value].proc[item_name]>].separated_by[, ]>"
                     - case brewing:
                         - define "book_pages:->:<[page_title]><n><&b>Brewing Recipe<n><&7>Top: <[recipe.ingredient].proc[item_name]><&7><n>Bottom: <[recipe.input].proc[item_name]><&7><n>"
+
+            - define obtain_scripts <util.scripts.filter_tag[<[filter_value].container_type.equals[item].and[<[filter_value].data_key[data].get[obtain].exists>]>]>
+            - define valid_obtain <list>
+            - foreach <[obtain_scripts]> as:script:
+                - define obtain <[script].data_key[data].get[obtain]>
+                - foreach <[obtain]> as:obtain_data key:obtain_id:
+                    - define add_obtain <[obtain_data].with[output].as[<item[<[script].original_name>]>]>
+                    - define add_obtain.quantity:1 if:<[add_obtain].get[quantity].exists.not>
+                    - define add_obtain.chance:100 if:<[add_obtain].get[chance].exists.not>
+                    - define valid_obtain:->:<[add_obtain]>
+
+            - flag server recipes_index.obtain:<[valid_obtain]>
+
+            - foreach <server.flag[recipes_index.obtain]> as:obtain:
+                - define item_name <[obtain.output].proc[item_name]>
+                - define page_title <[item_name]>
+                - choose <[obtain.type]>:
+                    - default:
+                        - foreach next
+                    - case mob_drop:
+                        - define "book_pages:->:<[page_title]><n><&b>Mob Drop<n><&7>Mob(s): <[obtain.mob].parse_tag[<[parse_value].to_titlecase>].separated_by[, ]><&7><n>Chance: <[obtain.chance]>%<&7><n> <&7><n>Quantity: <[obtain.quantity]>"
 
             - flag server recipes_index.book_pages:<[book_pages]>
 
