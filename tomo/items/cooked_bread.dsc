@@ -1,7 +1,7 @@
 cooked_bread:
     type: item
     material: bread
-    display name: <white><&dq>Toast<&dq>
+    display name: <gray><&dq>Toast<&dq>
     mechanisms:
         hides: all
     enchantments:
