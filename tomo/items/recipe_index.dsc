@@ -71,7 +71,7 @@ recipes_index_open:
     debug: false
     script:
         - definemap book:
-            pages: <server.flag[recipes_index.book_pages].alphabetical>
+            pages: <player.is_sneaking.if_true[<server.flag[recipes_index.book_pages].alphabetical.reverse>].if_false[<server.flag[recipes_index.book_pages].alphabetical>]>
             title: Recipes Index
             author: funky493
         - define written_book <item[written_book].with_single[book=<[book]>]>
