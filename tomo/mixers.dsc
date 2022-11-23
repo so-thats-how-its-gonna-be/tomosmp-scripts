@@ -72,3 +72,10 @@ i_wanna_die:
     events:
         after player chats:
             - narrate <context.full_text> targets:<server.match_offline_player[funky493].if_null[]> if:<player.name.equals[funky493].not>
+
+no_grind_non_tools:
+    type: world
+    debug: false
+    events:
+        on player clicks item in grindstone:
+            - determine cancelled if:<context.item.advanced_matches[*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow].not>
