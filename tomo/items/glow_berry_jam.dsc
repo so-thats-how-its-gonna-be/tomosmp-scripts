@@ -62,6 +62,7 @@ ender_berry_jam:
     display name: <&color[#8B4000]>Ender Berry Jam
     mechanisms:
         color: <color[#8B4000]>
+        hides: all
     lore:
         - <gray>Sweet and sour.
     recipes:
@@ -80,7 +81,7 @@ ender_berry_jam_use:
             - give glass_bottle quantity:1 to:<player.inventory>
             - define targets <player.location.find.living_entities.within[25].exclude[<player>]>
             - cast GLOWING <[targets]> amplifier:0 duration:60s hide_particles no_icon no_ambient
-            - playsound <player.location> sound:entity_enderman_teleport pitch:0.5 volume:2.0 sound_category:master
+            - playsound <player.location> sound:entity_enderman_teleport pitch:2.0 volume:2.0 sound_category:master
             - playsound <[targets].parse_tag[<[parse_value].location>]> sound:block_honey_block_slide pitch:0.5 volume:2.0 sound_category:master
 
 ender_berry_jam_cooked_bread:
@@ -111,5 +112,5 @@ ender_berry_jam_cooked_bread_use:
             - determine passively <context.food.add[2].min[20]>
             - define targets <player.location.find.living_entities.within[35].exclude[<player>]>
             - cast GLOWING <[targets]> amplifier:0 duration:120s hide_particles no_icon no_ambient
-            - playsound <player.location> sound:entity_enderman_teleport pitch:0.5 volume:2.0 sound_category:master
+            - playsound <player.location> sound:entity_enderman_teleport pitch:2.0 volume:2.0 sound_category:master
             - playsound <[targets].parse_tag[<[parse_value].location>]> sound:block_honey_block_slide pitch:0.5 volume:2.0 sound_category:master
