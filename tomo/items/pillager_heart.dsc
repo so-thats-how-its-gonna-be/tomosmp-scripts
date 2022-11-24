@@ -44,3 +44,4 @@ pillager_heart_drop:
         on pillager|evoker|ravager|vindicator dies:
             - stop if:<util.random_chance[99]>
             - determine passively <context.drops.include_single[pillager_heart]>
+            - playsound <context.location> sound:entity_warden_death sound_category:master volume:2 pitch:0.5
