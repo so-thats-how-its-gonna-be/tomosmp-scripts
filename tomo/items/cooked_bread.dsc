@@ -1,13 +1,14 @@
 cooked_bread:
     type: item
     material: bread
-    display name: <gray><&dq>Toast<&dq>
+    display name: <&color[#C4A484]>Toast
     mechanisms:
         hides: all
     enchantments:
         - unbreaking:1
     lore:
-        - <gray><bold>You probably burnt it.
+        - <empty>
+        - <gray><italic>You probably burnt it.
     recipes:
         1:
             type: furnace
