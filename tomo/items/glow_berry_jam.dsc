@@ -77,7 +77,7 @@ ender_berry_jam_use:
         on player consumes ender_berry_jam:
             - determine passively cancelled
             - take iteminhand quantity:1 from:<player.inventory>
-            - give glow_berry_jam quantity:1 to:<player.inventory>
+            - give glass_bottle quantity:1 to:<player.inventory>
             - define targets <player.location.find.living_entities.within[25].exclude[<player>]>
             - cast GLOWING <[targets]> amplifier:0 duration:60s hide_particles no_icon no_ambient
             - playsound <player.location> sound:entity_enderman_teleport pitch:0.5 volume:2.0 sound_category:master
