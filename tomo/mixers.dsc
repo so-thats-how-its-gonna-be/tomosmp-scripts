@@ -78,4 +78,4 @@ no_grind_non_tools:
     debug: false
     events:
         on player clicks item in grindstone:
-            - determine cancelled if:<context.item.durability.exists.not.and[<context.item.max_durability.exists.not>].and[<context.item.advanced_matches[air].not>]>
+            - determine cancelled if:<context.item.advanced_matches[*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow|air|*_boots|shield|trident|*_chestplate|*_leggings|*_helmet].not>
