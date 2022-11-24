@@ -77,6 +77,17 @@ recipes_index_open:
         - define written_book <item[written_book].with_single[book=<[book]>]>
         - adjust <player> show_book:<[written_book]>
 
+recipes_index_open_random:
+    type: task
+    debug: false
+    script:
+        - definemap book:
+            pages: <server.flag[recipes_index.book_pages].random[9999]>
+            title: Recipes Index
+            author: funky493
+        - define written_book <item[written_book].with_single[book=<[book]>]>
+        - adjust <player> show_book:<[written_book]>
+
 recipes_index_dummy:
     type: item
     material: book
@@ -97,3 +108,5 @@ recipes_index_dummy_open:
     events:
         on player right clicks block with:recipes_index_dummy:
             - run recipes_index_open
+        on player left clicks block with:recipes_index_dummy:
+            - run recipes_index_open_random
