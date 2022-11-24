@@ -11,7 +11,7 @@ glow_berry_jam:
     recipes:
         1:
             type: brewing
-            input: bottle
+            input: glass_bottle
             ingredient: glow_berries
 
 glow_berry_jam_use:
