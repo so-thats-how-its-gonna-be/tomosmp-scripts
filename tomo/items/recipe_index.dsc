@@ -64,6 +64,8 @@ recipes_index_reload:
                     - case log_stripping:
                         - define "book_pages:->:<[page_title]><n><&b>Log Stripping<n><&7>Tree: <&0><[obtain.input].replace[_].with[ ].to_titlecase><&7><n>Chance: <&0><[obtain.chance]>%<&7><n>Quantity: <&0><[obtain.quantity]>"
 
+            - define book_pages <[book_pages].sort_by_value[strip_color]>
+
             - flag server recipes_index.book_pages:<[book_pages]>
 
 recipes_index_open:
@@ -71,7 +73,7 @@ recipes_index_open:
     debug: false
     script:
         - definemap book:
-            pages: <player.is_sneaking.if_true[<server.flag[recipes_index.book_pages].alphabetical.reverse>].if_false[<server.flag[recipes_index.book_pages].alphabetical>]>
+            pages: <player.is_sneaking.if_true[<server.flag[recipes_index.book_pages].reverse>].if_false[<server.flag[recipes_index.book_pages]>]>
             title: Recipes Index
             author: funky493
         - define written_book <item[written_book].with_single[book=<[book]>]>
