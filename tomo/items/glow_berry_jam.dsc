@@ -1,6 +1,6 @@
 glow_berry_jam:
     type: item
-    material: mushroom_stew
+    material: honey_bottle
     display name: <&color[#F5761A]>Glow Berry Jam
     mechanisms:
         hides: all
@@ -24,3 +24,7 @@ glow_berry_jam_use:
             - take iteminhand quantity:1 from:<player.inventory>
             - cast GLOWING <context.entity> amplifier:0 duration:180s hide_particles no_icon no_ambient
             - playsound <context.entity.location> sound:block_honey_block_slide pitch:0.5 volume:2.0 sound_category:master
+        on player changes food level item:glow_berry_jam:
+            - determine passively cancelled
+            - take iteminhand quantity:1 from:<player.inventory>
+            - cast GLOWING <player> amplifier:0 duration:180s hide_particles no_icon no_ambient
