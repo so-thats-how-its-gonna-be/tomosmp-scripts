@@ -79,7 +79,7 @@ ender_berry_jam_use:
             - determine passively cancelled
             - take iteminhand quantity:1 from:<player.inventory>
             - give glass_bottle quantity:1 to:<player.inventory>
-            - define targets <player.location.find.living_entities.within[25].exclude[<player>]>
+            - define targets <player.location.find.living_entities.within[50].exclude[<player>]>
             - cast GLOWING <[targets]> amplifier:0 duration:60s hide_particles no_icon no_ambient
             - playsound <player.location> sound:entity_enderman_teleport pitch:2.0 volume:2.0 sound_category:master
             - playsound <[targets].parse_tag[<[parse_value].location>]> sound:block_honey_block_slide pitch:0.5 volume:2.0 sound_category:master
@@ -110,7 +110,7 @@ ender_berry_jam_cooked_bread_use:
     events:
         on player changes food level item:ender_berry_jam_cooked_bread:
             - determine passively <context.food.add[2].min[20]>
-            - define targets <player.location.find.living_entities.within[35].exclude[<player>]>
+            - define targets <player.location.find.living_entities.within[100].exclude[<player>]>
             - cast GLOWING <[targets]> amplifier:0 duration:120s hide_particles no_icon no_ambient
             - playsound <player.location> sound:entity_enderman_teleport pitch:2.0 volume:2.0 sound_category:master
             - playsound <[targets].parse_tag[<[parse_value].location>]> sound:block_honey_block_slide pitch:0.5 volume:2.0 sound_category:master
