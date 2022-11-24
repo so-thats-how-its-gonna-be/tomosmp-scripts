@@ -1,7 +1,7 @@
 glow_berry_jam:
     type: item
     material: mushroom_stew
-    display name: <color[#F5761A]>Glow Berry Jam
+    display name: <&color[#F5761A]>Glow Berry Jam
     mechanisms:
         hides: all
     enchantments:
