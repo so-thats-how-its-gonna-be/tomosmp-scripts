@@ -109,6 +109,8 @@ recipes_index_dummy_open:
     debug: false
     events:
         on player right clicks block with:recipes_index_dummy:
+            - determine passively cancelled
             - run recipes_index_open
         on player left clicks block with:recipes_index_dummy:
+            - determine passively cancelled
             - run recipes_index_open_random
