@@ -45,5 +45,5 @@ frag_grenade_events:
             - determine passively cancelled
             - take iteminhand quantity:1 from:<player.inventory>
             - spawn frag_grenade_entity at:<player.eye_location.forward[0.1]> save:entity
-            - shoot <entry[entity].spawned_entity> destination:<player.location.forward[10]> speed:1.5
+            - shoot <entry[entity].spawned_entity> destination:<player.eye_location.forward[10]> speed:0.5 height:0.5
             - playsound <player.eye_location> sound:entity_witch_throw sound_category:master
