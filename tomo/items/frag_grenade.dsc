@@ -1,6 +1,10 @@
 frag_grenade_entity:
     type: entity
     entity_type: arrow
+    mechanisms:
+        silent: true
+        potion_effects:
+            - [type=INVISIBILITY;amplifier=0;duration=20m;ambient=false;particles=false;icon=false]
 
 frag_grenade_entity_disguise:
     type: entity
@@ -8,8 +12,6 @@ frag_grenade_entity_disguise:
     mechanisms:
         equipment:
             helmet: frag_grenade
-        potion_effects:
-            - [type=INVISIBILITY;amplifier=0;duration=20m;ambient=false;particles=false;icon=false]
         is_small: true
 
 frag_grenade_entity_events:
