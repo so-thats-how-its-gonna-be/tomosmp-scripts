@@ -13,6 +13,8 @@ frag_grenade_dropped_entity:
         item: frag_grenade
         pickup_delay: 500m
         invulnerable: true
+    flags:
+        uuid: <util.random_uuid>
 
 frag_grenade_summon_dropped_item:
     type: task
