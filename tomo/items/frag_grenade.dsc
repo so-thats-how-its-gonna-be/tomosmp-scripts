@@ -14,40 +14,35 @@ frag_grenade_dropped_entity:
         pickup_delay: 500m
         invulnerable: true
 
+frag_grenade_summon_dropped_item:
+    type: task
+    definitions: location|projectile
+    script:
+        - remove <[projectile]>
+        - spawn frag_grenade_dropped_entity at:<[location]> save:grenade
+        - define grenade <entry[grenade].spawned_entity>
+        - repeat 3:
+            - stop if:<[grenade].is_spawned.not.if_null[true]>
+            - playsound <[grenade].location> sound:block_dispenser_fail sound_category:master volume:2 pitch:<[value].mul[0.5]>
+            - wait 1s
+        - stop if:<[grenade].is_spawned.not.if_null[true]>
+        - define grenade_location <[grenade].location>
+        - remove <[grenade]>
+        - playeffect effect:block_crack at:<[grenade_location]> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
+        - explode <[grenade_location]> power:0.5 fire source:<[projectile].flag[thrower]>
+
 frag_grenade_entity_events:
     type: world
     debug: false
     events:
         on frag_grenade_entity spawns:
-            - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1]>
+            - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1].if_null[<context.projectile>]>
         on frag_grenade_entity hits block:
             - determine passively cancelled
-            - remove <context.projectile>
-            - spawn frag_grenade_dropped_entity at:<context.location.center.above[1]> save:grenade
-            - define grenade <entry[grenade].spawned_entity>
-            - repeat 3:
-                - stop if:<[grenade].is_spawned.not.if_null[true]>
-                - playsound <[grenade].location> sound:block_dispenser_fail sound_category:master volume:2 pitch:<[value].mul[0.5]>
-                - wait 1s
-            - stop if:<[grenade].is_spawned.not.if_null[true]>
-            - define grenade_location <[grenade].location>
-            - remove <[grenade]>
-            - playeffect effect:block_crack at:<[grenade_location]> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
-            - explode <[grenade_location]> power:0.5 fire source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
+            - run frag_grenade_summon_dropped_item def:<context.location>|<context.projectile>
         on frag_grenade_entity hits entity:
             - determine passively cancelled
-            - remove <context.projectile>
-            - spawn frag_grenade_dropped_entity at:<context.entity.location.center.above[1]> save:grenade
-            - define grenade <entry[grenade].spawned_entity>
-            - repeat 3:
-                - stop if:<[grenade].is_spawned.not.if_null[true]>
-                - playsound <[grenade].location> sound:block_dispenser_fail sound_category:master volume:2 pitch:<[value].mul[0.5]>
-                - wait 1s
-            - stop if:<[grenade].is_spawned.not.if_null[true]>
-            - define grenade_location <[grenade].location>
-            - remove <[grenade]>
-            - playeffect effect:block_crack at:<[grenade_location]> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
-            - explode <[grenade_location]> power:0.5 fire source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
+            - run frag_grenade_summon_dropped_item def:<context.entity.location>|<context.projectile>
 
 frag_grenade:
     type: item
