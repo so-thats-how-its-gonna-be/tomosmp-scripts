@@ -20,7 +20,7 @@ frag_grenade_entity_events:
             - determine passively cancelled
             - remove <context.projectile>
             - playeffect effect:block_crack at:<context.hit_entity.location> quantity:200 offset:1.5,1.5,1.5 special_data:tnt
-            - explode <context.hit_entity.location> power:2.0 source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
+            - explode <context.hit_entity.location> power:1.35 source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
 
 frag_grenade:
     type: item
