@@ -1,25 +1,17 @@
 frag_grenade_entity:
     type: entity
-    entity_type: arrow
+    entity_type: snowball
     mechanisms:
         silent: true
-        potion_effects:
-            - [type=INVISIBILITY;amplifier=0;duration=20m;ambient=false;particles=false;icon=false]
-
-frag_grenade_entity_disguise:
-    type: entity
-    entity_type: armor_stand
-    mechanisms:
-        equipment:
-            helmet: frag_grenade
-        is_small: true
+        pickup_status: DISALLOWED
+        item: frag_grenade
 
 frag_grenade_entity_events:
     type: world
     debug: false
     events:
         on frag_grenade_entity spawns:
-            - disguise <context.entity> as:<entity[frag_grenade_entity_disguise]> global
+            #- disguise <context.entity> as:<entity[frag_grenade_entity_disguise]> global
             - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1]>
         on frag_grenade_entity hits block:
             - determine passively cancelled
