@@ -8,6 +8,8 @@ frag_grenade_entity_disguise:
     mechanisms:
         equipment:
             helmet: frag_grenade
+        potion_effects:
+            - [type=INVISIBILITY;amplifier=0;duration=20m;ambient=false;particles=false;icon=false]
         is_small: true
 
 frag_grenade_entity_events:
@@ -15,7 +17,6 @@ frag_grenade_entity_events:
     debug: false
     events:
         on frag_grenade_entity spawns:
-            - cast INVISIBILITY <context.entity> hide_particles no_ambient duration:1200s
             - disguise <context.entity> as:frag_grenade_entity_disguise global
             - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1]>
         on frag_grenade_entity hits block:
