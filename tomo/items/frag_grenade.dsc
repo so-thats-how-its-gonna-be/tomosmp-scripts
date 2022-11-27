@@ -1,6 +1,6 @@
 frag_grenade_entity:
     type: entity
-    entity_type: snowball
+    entity_type: arrow
 
 frag_grenade_entity_disguise:
     type: entity
