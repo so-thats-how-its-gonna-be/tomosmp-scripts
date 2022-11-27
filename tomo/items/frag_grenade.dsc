@@ -3,7 +3,6 @@ frag_grenade_entity:
     entity_type: snowball
     mechanisms:
         silent: true
-        pickup_status: DISALLOWED
         item: frag_grenade
 
 frag_grenade_entity_events:
@@ -11,7 +10,6 @@ frag_grenade_entity_events:
     debug: false
     events:
         on frag_grenade_entity spawns:
-            #- disguise <context.entity> as:<entity[frag_grenade_entity_disguise]> global
             - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1]>
         on frag_grenade_entity hits block:
             - determine passively cancelled
@@ -21,8 +19,8 @@ frag_grenade_entity_events:
         on frag_grenade_entity hits entity:
             - determine passively cancelled
             - remove <context.projectile>
-            - playeffect effect:block_crack at:<context.hit_entity.location> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
-            - explode <context.hit_entity.location> power:0.5 fire source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
+            - playeffect effect:block_crack at:<context.hit_entity.location> quantity:200 offset:1.5,1.5,1.5 special_data:tnt
+            - explode <context.hit_entity.location> power:2.0 source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
 
 frag_grenade:
     type: item
@@ -40,4 +38,4 @@ frag_grenade_events:
             - take iteminhand quantity:1 from:<player.inventory>
             - spawn frag_grenade_entity at:<player.eye_location.forward[0.1]> save:entity
             - shoot <entry[entity].spawned_entity> destination:<player.eye_location.forward[10]> speed:0.5 height:0.5
-            - playsound <player.eye_location> sound:entity_witch_throw sound_category:master
+            - playsound <player.eye_location> sound:entity_witch_throw sound_category:master pitch:0.5 volume:2
