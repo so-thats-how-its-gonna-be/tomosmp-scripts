@@ -19,7 +19,7 @@ compress_list:
     type: procedure
     definitions: list
     script:
-        - define compressed <[list]>
+        - define compressed <list>
         - define gone_thru <list>
         - foreach <[list]> as:element:
             - foreach next if:<[gone_thru].contains[<[element]>]>
