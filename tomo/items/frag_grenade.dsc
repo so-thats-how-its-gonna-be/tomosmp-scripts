@@ -7,9 +7,9 @@ frag_grenade_entity_disguise:
     entity_type: armor_stand
     mechanisms:
         equipment:
-            head: frag_grenade
+            helmet: frag_grenade
         potion_effects:
-            - <map[type=INVISIBILITY;amplifier=0;duration=12000s;particles=false;ambient=false]>
+            - [type=INVISIBILITY;amplifier=0;duration=12000s;particles=false;ambient=false]
         is_small: true
 
 frag_grenade_entity_events:
