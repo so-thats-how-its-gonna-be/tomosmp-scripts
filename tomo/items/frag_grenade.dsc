@@ -17,7 +17,7 @@ frag_grenade_entity_events:
     debug: false
     events:
         on frag_grenade_entity spawns:
-            - disguise <context.entity> as:frag_grenade_entity_disguise global
+            - disguise <context.entity> as:<entity[frag_grenade_entity_disguise]> global
             - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1]>
         on frag_grenade_entity hits block:
             - determine passively cancelled
