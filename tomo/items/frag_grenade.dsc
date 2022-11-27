@@ -23,9 +23,12 @@ frag_grenade_entity_events:
         on frag_grenade_entity hits block:
             - determine passively cancelled
             - remove <context.projectile>
-            - spawn frag_grenade_dropped_entity at:<context.location.up[0.5]> save:grenade
+            - spawn frag_grenade_dropped_entity at:<context.location.center.above[1]> save:grenade
             - define grenade <entry[grenade].spawned_entity>
-            - wait 3s
+            - repeat 3:
+                - stop if:<[grenade].is_spawned.not.if_null[true]>
+                - playsound <[grenade].location> sound:block_dispenser_fail sound_category:master volume:2 pitch:<[value].mul[0.5]>
+                - wait 1s
             - stop if:<[grenade].is_spawned.not.if_null[true]>
             - define grenade_location <[grenade].location>
             - remove <[grenade]>
@@ -34,9 +37,12 @@ frag_grenade_entity_events:
         on frag_grenade_entity hits entity:
             - determine passively cancelled
             - remove <context.projectile>
-            - spawn frag_grenade_dropped_entity at:<context.entity.location.up[0.5]> save:grenade
+            - spawn frag_grenade_dropped_entity at:<context.entity.location.center.above[1]> save:grenade
             - define grenade <entry[grenade].spawned_entity>
-            - wait 3s
+            - repeat 3:
+                - stop if:<[grenade].is_spawned.not.if_null[true]>
+                - playsound <[grenade].location> sound:block_dispenser_fail sound_category:master volume:2 pitch:<[value].mul[0.5]>
+                - wait 1s
             - stop if:<[grenade].is_spawned.not.if_null[true]>
             - define grenade_location <[grenade].location>
             - remove <[grenade]>
