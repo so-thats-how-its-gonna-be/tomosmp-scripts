@@ -47,7 +47,7 @@ frag_grenade_entity_events:
             - run frag_grenade_summon_dropped_item def:<context.location.center.above[1.2]>|<context.projectile>
         on frag_grenade_entity hits entity:
             - determine passively cancelled
-            - run frag_grenade_summon_dropped_item def:<context.entity.location.center.above[1.2]>|<context.projectile>
+            - run frag_grenade_summon_dropped_item def:<context.hit_entity.location.center.above[1.2]>|<context.projectile>
 
 frag_grenade:
     type: item
