@@ -14,3 +14,19 @@ item_name:
             - determine "<&r>Glowstone Block<&r>"
         - else:
             - determine <&r><[item].display.if_null[<[item].material.name.replace_text[_].with[ ].to_titlecase>]><&r>
+
+compress_list:
+    type: procedure
+    definitions: list
+    script:
+        - define compressed <[list]>
+        - define gone_thru <list>
+        - foreach <[list]> as:element:
+            - foreach next if:<[gone_thru].contains[<[element]>]>
+            - define count <[list].count[<[element]>]>
+            - if <[count]> == 1:
+                - define compressed:->:<[element]>
+            - else:
+                - define "compressed:->:<[count]>x <[element]>"
+                - define gone_thru:->:<[element]>
+        - determine <[compressed]>
