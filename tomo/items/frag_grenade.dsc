@@ -5,6 +5,15 @@ frag_grenade_entity:
         silent: true
         item: frag_grenade
 
+frag_grenade_dropped_entity:
+    type: entity
+    entity_type: dropped_item
+    mechanisms:
+        silent: true
+        item: frag_grenade
+        pickup_delay: 500m
+        invulnerable: true
+
 frag_grenade_entity_events:
     type: world
     debug: false
@@ -14,13 +23,19 @@ frag_grenade_entity_events:
         on frag_grenade_entity hits block:
             - determine passively cancelled
             - remove <context.projectile>
-            - playeffect effect:block_crack at:<context.location> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
-            - explode <context.location> power:0.5 fire source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
+            - spawn frag_grenade_dropped_entity at:<context.location.up[0.5]> save:grenade
+            - define grenade <entry[grenade].spawned_entity>
+            - wait 3s
+            - stop if:<[grenade].is_spawned.not.if_null[true]>
+            - define grenade_location <[grenade].location>
+            - remove <[grenade]>
+            - playeffect effect:block_crack at:<[grenade_location]> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
+            - explode <[grenade_location]> power:0.5 fire source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
         on frag_grenade_entity hits entity:
             - determine passively cancelled
             - remove <context.projectile>
             - playeffect effect:block_crack at:<context.hit_entity.location> quantity:200 offset:1.5,1.5,1.5 special_data:tnt
-            - explode <context.hit_entity.location> power:1.35 source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
+            - explode <context.hit_entity.location> power:2.0 source:<context.projectile.flag[thrower].if_null[<context.projectile>]>
 
 frag_grenade:
     type: item
