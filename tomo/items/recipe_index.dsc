@@ -37,7 +37,7 @@ recipes_index_reload:
                     - case campfire:
                         - define "book_pages:->:<[page_title]><n><&b>Campfire Recipe<n><&7>Input: <[recipe.input].proc[item_name]><&7><n>"
                     - case shapeless:
-                        - define "book_pages:->:<[page_title]><n><&b>Shapeless Recipe<n><&7>Input: <n><[recipe.input].as[list].parse_tag[<[parse_value].proc[item_name]>].proc[compress_list].separated_by[<black>, <black>]>"
+                        - define "book_pages:->:<[page_title]><n><&b>Shapeless Recipe<n><&7>Input: <n><black><[recipe.input].as[list].parse_tag[<[parse_value].proc[item_name]>].proc[compress_list].separated_by[<black>, <black>]>"
                     - case brewing:
                         - define "book_pages:->:<[page_title]><n><&b>Brewing Recipe<n><&7>Top: <[recipe.ingredient].proc[item_name]><&7><n>Bottom: <[recipe.input].proc[item_name]><&7><n>"
 
