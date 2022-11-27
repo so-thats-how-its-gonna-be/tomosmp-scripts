@@ -56,6 +56,10 @@ frag_grenade:
     display name: <dark_green>Frag Grenade
     mechanisms:
         skull_skin: 1a8e3fdf-eb9b-4cb3-a855-ea9ffbdde4f7|eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzVkMDk2ZjhjNjhlZWMyYTcwMWQxZDVkMmQzMDdjMjdmOGRjYmU4Mzc5ZDAwNTI4YmZiMjg2NGM2NjRjMSJ9fX0=
+    recipes:
+        1:
+            type: shapeless
+            input: copper_ingot|copper_ingot|copper_ingot|copper_ingot|tnt
 
 frag_grenade_events:
     type: world
