@@ -16,6 +16,7 @@ frag_grenade_dropped_entity:
 
 frag_grenade_summon_dropped_item:
     type: task
+    debug: false
     definitions: location|projectile
     script:
         - remove <[projectile]>
@@ -39,10 +40,10 @@ frag_grenade_entity_events:
             - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1].if_null[<context.projectile>]>
         on frag_grenade_entity hits block:
             - determine passively cancelled
-            - run frag_grenade_summon_dropped_item def:<context.location>|<context.projectile>
+            - run frag_grenade_summon_dropped_item def:<context.location.center.above[1.2]>|<context.projectile>
         on frag_grenade_entity hits entity:
             - determine passively cancelled
-            - run frag_grenade_summon_dropped_item def:<context.entity.location>|<context.projectile>
+            - run frag_grenade_summon_dropped_item def:<context.entity.location.center.above[1.2]>|<context.projectile>
 
 frag_grenade:
     type: item
