@@ -1,5 +1,6 @@
 frag_grenade_entity:
     type: entity
+    debug: false
     entity_type: snowball
     mechanisms:
         silent: true
@@ -7,6 +8,7 @@ frag_grenade_entity:
 
 frag_grenade_dropped_entity:
     type: entity
+    debug: false
     entity_type: dropped_item
     mechanisms:
         silent: true
@@ -24,7 +26,7 @@ frag_grenade_summon_dropped_item:
         - remove <[projectile]>
         - spawn frag_grenade_dropped_entity at:<[location]> save:grenade
         - define grenade <entry[grenade].spawned_entity>
-        - repeat 3:
+        - repeat 4:
             - stop if:<[grenade].is_spawned.not.if_null[true]>
             - playsound <[grenade].location> sound:block_dispenser_fail sound_category:master volume:2 pitch:<[value].mul[0.5]>
             - wait 1s
@@ -32,7 +34,7 @@ frag_grenade_summon_dropped_item:
         - define grenade_location <[grenade].location>
         - remove <[grenade]>
         - playeffect effect:block_crack at:<[grenade_location]> quantity:35 offset:0.5,0.5,0.5 special_data:tnt
-        - explode <[grenade_location]> power:0.5 fire source:<[projectile].flag[thrower]>
+        - explode <[grenade_location]> power:2.0 fire source:<[projectile].flag[thrower]>
 
 frag_grenade_entity_events:
     type: world
@@ -49,6 +51,7 @@ frag_grenade_entity_events:
 
 frag_grenade:
     type: item
+    debug: false
     material: player_head
     display name: <dark_green>Frag Grenade
     mechanisms:
