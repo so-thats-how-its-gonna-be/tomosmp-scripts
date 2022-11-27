@@ -20,8 +20,8 @@ sweet_berry_jam_use:
     debug: false
     events:
         on player consumes sweet_berry_jam:
-            - cast REGENERATION amplifier:2 duration:5s
-            - cast SATURATION amplifier:2 duration:5s
+            - cast REGENERATION amplifier:2 duration:2s
+            - cast SATURATION amplifier:0 duration:2s
 
 sweet_berry_jam_cooked_bread:
     type: item
@@ -45,4 +45,4 @@ sweet_berry_jam_cooked_bread_use:
     events:
         on player consumes sweet_berry_jam_cooked_bread:
             - cast REGENERATION amplifier:2 duration:5s
-            - cast SATURATION amplifier:2 duration:5s
+            - cast SATURATION amplifier:0 duration:5s
