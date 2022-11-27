@@ -15,7 +15,7 @@ frag_grenade_entity_events:
     debug: false
     events:
         on frag_grenade_entity spawns:
-            - cast INVISIBILITY hide_particles no_ambient duration:1200s
+            - cast INVISIBILITY <context.entity> hide_particles no_ambient duration:1200s
             - disguise <context.entity> as:frag_grenade_entity_disguise global
             - flag <context.entity> thrower:<context.entity.location.find_players_within[5].get[1]>
         on frag_grenade_entity hits block:
