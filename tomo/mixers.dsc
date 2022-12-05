@@ -78,4 +78,4 @@ no_grind_non_tools:
     debug: false
     events:
         on player clicks item in grindstone:
-            - determine cancelled if:<context.item.advanced_matches[shears|flint_and_steel|*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow|air|*_boots|shield|trident|*_chestplate|*_leggings|*_helmet].not>
+            - determine cancelled if:<context.item.advanced_matches[enchanted_book|shears|flint_and_steel|*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow|air|*_boots|shield|trident|*_chestplate|*_leggings|*_helmet].not>
