@@ -47,13 +47,13 @@ discord_bot:
                         - strike <server.match_player[<[args].get[1]>].location>
                         - ~discordmessage id:tomobot channel:<context.channel.id> "Struck `<[args].get[1]>` with the force of the sun!"
                         - stop
-            - if <context.new_message.starts_with[b!]>:
+            - if <context.new_message.text.starts_with[b!]>:
                 - define full_command <context.new_message.text.after[b!]>
                 - define command <[full_command].split[ ].get[1]>
                 - define args <[full_command].split.remove[1]>
                 - choose <[command]>:
                     - case players online p list:
-                        - define player_list <server.online_players>
+                        - define player_list <server.online_players.parse_tag[<[parse_value].name>]>
                         - ~discordmessage id:tomobot channel:<context.channel.id> "Online players: <n>`<[player_list].separated_by[`, `]>`"
                         - stop
 
