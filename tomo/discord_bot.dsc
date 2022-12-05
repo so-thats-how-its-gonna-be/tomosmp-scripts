@@ -47,6 +47,7 @@ discord_bot:
                         - strike <server.match_player[<[args].get[1]>].location>
                         - ~discordmessage id:tomobot channel:<context.channel.id> "Struck `<[args].get[1]>` with the force of the sun!"
                         - stop
+
             - if <context.new_message.text.starts_with[b!]>:
                 - define full_command <context.new_message.text.after[b!]>
                 - define command <[full_command].split[ ].get[1]>
