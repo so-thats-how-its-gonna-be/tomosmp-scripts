@@ -79,3 +79,11 @@ no_grind_non_tools:
     events:
         on player clicks item in grindstone:
             - determine cancelled if:<context.item.advanced_matches[enchanted_book|shears|flint_and_steel|*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow|air|*_boots|shield|trident|*_chestplate|*_leggings|*_helmet].not>
+
+wolf_no_enviromental_damage:
+    type: world
+    debug: false
+    events:
+        on wolf damaged:
+            - stop if:<context.cause.is_in[BLOCK_EXPLOSION|ENTITY_EXPLOSION|FIRE|FIRE_TICK|LAVA|LIGHTNING|SUFFOCATION|HOT_FLOOR|WITHER].not>
+            - determine cancelled
