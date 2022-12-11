@@ -31,8 +31,9 @@ compress_list:
                 - define gone_thru:->:<[element]>
         - determine <[compressed]>
 
-flag_events:
+flag_events_item:
     type: world
+    debug: false
     events:
         on player places item_flagged:no_place:
         - determine cancelled
