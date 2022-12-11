@@ -85,5 +85,5 @@ wolf_no_enviromental_damage:
     debug: false
     events:
         on wolf damaged:
-            - stop if:<context.cause.is_in[BLOCK_EXPLOSION|ENTITY_EXPLOSION|FIRE|FIRE_TICK|LAVA|LIGHTNING|SUFFOCATION|HOT_FLOOR|WITHER].not>
+            - stop if:<context.cause.is_in[BLOCK_EXPLOSION|ENTITY_EXPLOSION|FIRE|FIRE_TICK|LAVA|LIGHTNING|SUFFOCATION|HOT_FLOOR|WITHER|FREEZE].not>
             - determine cancelled
