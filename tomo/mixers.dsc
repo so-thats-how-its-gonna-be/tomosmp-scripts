@@ -66,13 +66,6 @@ no_fire_tick:
             - stop if:<server.flag[tomo.features.no_fire_tick].not>
             - determine cancelled
 
-i_wanna_die:
-    type: world
-    debug: false
-    events:
-        after player chats:
-            - narrate <context.full_text> targets:<server.match_offline_player[funky493].if_null[]> if:<player.name.equals[funky493].not>
-
 no_grind_non_tools:
     type: world
     debug: false
