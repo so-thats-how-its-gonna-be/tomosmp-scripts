@@ -16,6 +16,6 @@ echo_shard_drop_fulfill:
     type: world
     debug: false
     events:
-        after warden dies:
+        on warden dies:
             - stop if:<util.random_chance[90]>
             - drop echo_shard_drop <context.entity.eye_location> quantity:<util.random.int[1].to[3]>
