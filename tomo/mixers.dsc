@@ -71,7 +71,8 @@ no_grind_non_tools:
     debug: false
     events:
         on player clicks item in grindstone:
-            - if <context.item.advanced_matches[fishing_rod|enchanted_book|shears|flint_and_steel|*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow|air|*_boots|shield|trident|*_chestplate|*_leggings|*_helmet].not> && <context.inventory.result.is_in[book].not>:
+            - determine cancelled if:<context.item.advanced_matches[recipes_index_dummy]>
+            - if <context.item.advanced_matches[fishing_rod|enchanted_book|shears|flint_and_steel|*_axe|*_shovel|*_pickaxe|*_hoe|*_sword|bow|crossbow|air|*_boots|shield|trident|*_chestplate|*_leggings|*_helmet|book].not>:
                 - determine cancelled
 
 wolf_no_enviromental_damage:
