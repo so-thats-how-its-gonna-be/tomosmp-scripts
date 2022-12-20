@@ -1,10 +1,9 @@
 blonde_ale:
     type: item
     material: potion
-    data: #DE9547
-    display name: <&color[<script.data_key[data]>]>Blonde Ale
+    display name: <&color[<script.data_key[mechanisms].get[color]>]>Blonde Ale
     mechanisms:
-        color: <script.data_key[data]>
+        color: #DE9547
     flags:
         omp:
             drink:
@@ -13,10 +12,9 @@ blonde_ale:
 amber_ale:
     type: item
     material: potion
-    data: #DE7847
-    display name: <&color[<script.data_key[data]>]>Amber Ale
+    display name: <&color[<script.data_key[mechanisms].get[color]>]>Amber Ale
     mechanisms:
-        color: <script.data_key[data]>
+        color: #DE7847
     flags:
         omp:
             drink:
