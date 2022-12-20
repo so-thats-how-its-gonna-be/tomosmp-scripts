@@ -4,13 +4,16 @@ omp_data:
         global_tolerance: 2
         effects:
             blindness:
-                duration: 5s-30s
+                duration: 2s-15s
                 amplifier: 0-2
             confusion:
                 duration: 5s-15s
                 amplifier: 0
             hunger:
-                duration: 5s-1m
+                duration: 10s-15s
+                amplifier: 0-2
+            darkness:
+                duration: 5s-15s
                 amplifier: 0-2
 
 omp_tick:
@@ -37,11 +40,21 @@ omp_tick:
                     - define effect <[omp_data.effects].keys.random>
                     - define duration <duration[<[omp_data.effects.<[effect]>.duration]>]>
                     - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range].round>
-                    - cast <[effect]> <player> amplifier:<[amplifier]> duration:<[duration]>
+                    - cast <[effect]> <player> amplifier:<[amplifier]> duration:<[duration]> if:<player.has_effect[<[effect]>].not>
 
 omp_drink:
     type: world
     debug: false
     events:
         after player consumes item_flagged:omp.drink.strength:
-            - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].add[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
+            - choose <context.item.flag[omp.drink.type]>:
+                - case add:
+                    - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].add[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
+                - case mul:
+                    - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].mul[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
+                - case div:
+                    - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].div[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
+                - case sub:
+                    - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].sub[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
+                - case set:
+                    - flag <player> omp.drunkness.level:<context.item.flag[omp.drink.strength].proc[omp_rand_range]>
