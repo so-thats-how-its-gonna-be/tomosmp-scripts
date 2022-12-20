@@ -44,6 +44,7 @@ omp_tick:
                     - flag <player> omp.drunkness.level:<[drunkness].sub[<util.random.decimal[0].to[0.1]>].max[0]>
 
                 - foreach next if:<[drunkness].is_less_than[<[omp_data.global_tolerance]>]>
+                - foreach next if:<player.location.exists.not>
 
                 - if <util.random_chance[<[drunkness].sub[1].mul[3]>]>:
                     - define effect <[omp_data.effects].keys.random>
@@ -67,6 +68,7 @@ omp_tick:
                     - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=10;radius_on_use=-0;radius_per_tick=-0.01;source=<player>;wait_time=0.1s]>
                     - spawn <[vomit]> <player.location.center>
                     - kill <player>
+                    - flag <player> omp.drunkness.level:-:<util.random.decimal[50].to[100]>
 
 omp_drink:
     type: world
