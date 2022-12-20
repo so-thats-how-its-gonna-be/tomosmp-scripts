@@ -4,6 +4,7 @@ blonde_ale:
     display name: <&color[#DE9547]>Blonde Ale
     mechanisms:
         color: <color[#DE9547]>
+        hides: all
     flags:
         omp:
             drink:
@@ -15,6 +16,7 @@ amber_ale:
     display name: <&color[#DE7847]>Amber Ale
     mechanisms:
         color: <color[#DE7847]>
+        hides: all
     flags:
         omp:
             drink:
