@@ -5,16 +5,25 @@ omp_data:
         effects:
             blindness:
                 duration: 2s-15s
-                amplifier: 0-2
+                amplifier: 1-3
             confusion:
                 duration: 5s-15s
-                amplifier: 0
+                amplifier: 1
             hunger:
                 duration: 10s-15s
-                amplifier: 0-2
+                amplifier: 1-3
             darkness:
                 duration: 5s-15s
-                amplifier: 0-2
+                amplifier: 1-3
+            slow:
+                duration: 5s
+                amplifier: 1
+            increase_damage:
+                duration: 5s-15s
+                amplifier: 1-3
+            weakness:
+                duration: 5s-15s
+                amplifier: 1-2
 
 omp_tick:
     type: world
@@ -39,7 +48,7 @@ omp_tick:
                 - if <util.random_chance[<[drunkness].sub[1].mul[3]>]>:
                     - define effect <[omp_data.effects].keys.random>
                     - define duration <duration[<[omp_data.effects.<[effect]>.duration]>]>
-                    - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range].round>
+                    - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range].round.sub[1]>
                     - cast <[effect]> <player> amplifier:<[amplifier]> duration:<[duration]> if:<player.has_effect[<[effect]>].not>
 
 omp_drink:
