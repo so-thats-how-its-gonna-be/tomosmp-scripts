@@ -39,14 +39,6 @@ omp_tick:
                     - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range]>
                     - cast <[effect]> <player> amplifier:<[amplifier]> duration:<[duration]>
 
-omp_chat:
-    type: world
-    debug: false
-    events:
-        on player chats:
-            - define omp_data <script[omp_data].data_key[omp]>
-            - stop if:<player.flag[omp.drunkness.level].is_less_than[<[omp_data.global_tolerance]>]>
-
 omp_rand_range:
     type: procedure
     debug: false
