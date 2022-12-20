@@ -3,7 +3,7 @@ blonde_ale:
     material: potion
     display name: <&color[<script.data_key[mechanisms].get[color]>]>Blonde Ale
     mechanisms:
-        color: #DE9547
+        color: <color[#DE9547]>
     flags:
         omp:
             drink:
@@ -14,7 +14,7 @@ amber_ale:
     material: potion
     display name: <&color[<script.data_key[mechanisms].get[color]>]>Amber Ale
     mechanisms:
-        color: #DE7847
+        color: <color[#DE7847]>
     flags:
         omp:
             drink:
