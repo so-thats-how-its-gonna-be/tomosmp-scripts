@@ -62,6 +62,12 @@ omp_tick:
                     - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=3;radius_on_use=-0.2;radius_per_tick=-0.01;source=<player>;wait_time=0.5s]>
                     - spawn <[vomit]> <player.location.center>
 
+                - if <[drunkness]> > 100:
+                    - explode <player.eye_location> power:2.0 source:<player>
+                    - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=10;radius_on_use=-0;radius_per_tick=-0.01;source=<player>;wait_time=0.1s]>
+                    - spawn <[vomit]> <player.location.center>
+                    - kill <player>
+
 omp_drink:
     type: world
     debug: false
