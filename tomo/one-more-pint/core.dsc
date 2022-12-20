@@ -53,7 +53,7 @@ omp_tick:
 
                 - if <[drunkness]> > 10 && <util.random_chance[<[drunkness].sub[9].mul[3]>]>:
                     - hurt <player> 1 cause:MAGIC source:<player>
-
+                    - playsound <player> sound:entity_warden_heartbeat sound_category:PLAYERS pitch:2 volume:2
 
 omp_drink:
     type: world
