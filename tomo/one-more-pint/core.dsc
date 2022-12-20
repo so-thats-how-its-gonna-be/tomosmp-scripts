@@ -35,7 +35,7 @@ omp_tick:
 
             - foreach <server.online_players> as:__player:
 
-                - if <player.has_flag[omp.drunkness.level].not> || <player.flag[omp.drunkness.level]>:
+                - if <player.has_flag[omp.drunkness.level].not> || <player.flag[omp.drunkness.level]> < 0:
                     - flag <player> omp.drunkness.level:0
 
                 - define drunkness <player.flag[omp.drunkness.level]>
