@@ -51,9 +51,10 @@ omp_tick:
                     - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range].round.sub[1]>
                     - cast <[effect]> <player> amplifier:<[amplifier]> duration:<[duration]> if:<player.has_effect[<[effect]>].not>
 
-                - if <[drunkness]> > 10 && <util.random_chance[<[drunkness].sub[9].mul[3]>]>:
+                - if <[drunkness]> > 10 && <util.random_chance[<[drunkness].sub[9].mul[2]>]>:
                     - hurt <player> 1 cause:MAGIC source:<player>
                     - playsound <player> sound:entity_warden_heartbeat sound_category:PLAYERS pitch:2 volume:2
+                    - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[1]>
 
 omp_drink:
     type: world
