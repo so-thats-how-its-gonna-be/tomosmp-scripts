@@ -35,7 +35,7 @@ omp_tick:
 
             - foreach <server.online_players> as:__player:
 
-                - if <player.has_flag[omp.drunkness].not>:
+                - if <player.has_flag[omp.drunkness.level].not> || <player.flag[omp.drunkness.level]>:
                     - flag <player> omp.drunkness.level:0
 
                 - define drunkness <player.flag[omp.drunkness.level]>
@@ -54,7 +54,13 @@ omp_tick:
                 - if <[drunkness]> > 10 && <util.random_chance[<[drunkness].sub[9].mul[2]>]>:
                     - hurt <player> 1 cause:MAGIC source:<player>
                     - playsound <player> sound:entity_warden_heartbeat sound_category:PLAYERS pitch:2 volume:2
-                    - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[1]>
+                    - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[2]>
+
+                - if <[drunkness]> > 20 && <util.random_chance[<[drunkness].sub[19].mul[2]>]>:
+                    - playsound <player.location> sound:entity_llama_death sound_category:PLAYERS pitch:0.5 volume:2
+                    - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[10]>
+                    - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=3;radius_on_use=-0.2;radius_per_tick=-0.01;source=<player>;wait_time=0.5s;]>
+                    - spawn <[vomit]> <player.location.center>
 
 omp_drink:
     type: world
