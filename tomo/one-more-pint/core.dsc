@@ -54,7 +54,7 @@ omp_tick:
 
                 - if <[drunkness]> > 10 && <util.random_chance[<[drunkness].sub[9].mul[2]>]>:
                     - hurt <player> 1 cause:MAGIC source:<player>
-                    - playsound <player> sound:entity_vex_hurt sound_category:PLAYERS pitch:2 volume:2
+                    - playsound <player> sound:entity_chicken_hurt sound_category:PLAYERS pitch:2 volume:2
                     - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[2]>
 
                 - if <[drunkness]> > 20 && <util.random_chance[<[drunkness].sub[19].mul[2]>]>:
