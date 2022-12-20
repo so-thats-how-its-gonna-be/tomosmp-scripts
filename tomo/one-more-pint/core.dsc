@@ -36,15 +36,12 @@ omp_tick:
                 - if <util.random_chance[<[drunkness].sub[1].mul[3]>]>:
                     - define effect <[omp_data.effects].keys.random>
                     - define duration <duration[<[omp_data.effects.<[effect]>.duration]>]>
-                    - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range]>
+                    - define amplifier <[omp_data.effects.<[effect]>.amplifier].proc[omp_rand_range].round>
                     - cast <[effect]> <player> amplifier:<[amplifier]> duration:<[duration]>
 
-omp_rand_range:
-    type: procedure
+omp_drink:
+    type: world
     debug: false
-    definitions: element
-    script:
-        - if <[element].contains[-]>:
-            - determine <util.random.int[<[element].split[-].get[1]>].to[<[element].split[-].get[2]>]>
-        - else:
-            - determine <[element]>
+    events:
+        after player consumes item_flagged:omp.drink.strength:
+            - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].add[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
