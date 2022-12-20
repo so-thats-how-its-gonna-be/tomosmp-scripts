@@ -1,7 +1,7 @@
 blonde_ale:
     type: item
     material: potion
-    display name: <&color[DE9547]>Blonde Ale
+    display name: <&color[#DE9547]>Blonde Ale
     mechanisms:
         color: <color[#DE9547]>
     flags:
