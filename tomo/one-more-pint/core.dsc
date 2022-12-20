@@ -59,7 +59,7 @@ omp_tick:
                 - if <[drunkness]> > 20 && <util.random_chance[<[drunkness].sub[19].mul[2]>]>:
                     - playsound <player.location> sound:entity_llama_death sound_category:PLAYERS pitch:0.5 volume:2
                     - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[10]>
-                    - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=3;radius_on_use=-0.2;radius_per_tick=-0.01;source=<player>;wait_time=0.5s;]>
+                    - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=3;radius_on_use=-0.2;radius_per_tick=-0.01;source=<player>;wait_time=0.5s]>
                     - spawn <[vomit]> <player.location.center>
 
 omp_drink:
