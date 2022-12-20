@@ -1,7 +1,7 @@
 blonde_ale:
     type: item
     material: potion
-    display name: <&color[<script.data_key[mechanisms].get[color].hex>]>Blonde Ale
+    display name: <&color[DE9547]>Blonde Ale
     mechanisms:
         color: <color[#DE9547]>
     flags:
@@ -12,7 +12,7 @@ blonde_ale:
 amber_ale:
     type: item
     material: potion
-    display name: <&color[<script.data_key[mechanisms].get[color].hex>]>Amber Ale
+    display name: <&color[#DE7847]>Amber Ale
     mechanisms:
         color: <color[#DE7847]>
     flags:
