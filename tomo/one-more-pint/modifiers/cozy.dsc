@@ -4,5 +4,7 @@ omp_modifier_cozy:
     events:
         on entity_flagged:omp.modifiers.cozy changes food level:
             - stop if:<context.item.material.name.equals[cookie].not.if_null[true]>
-            - feed <context.entity> amount:5 saturation:3
-            - heal 2 <context.entity>
+            - heal 4 <context.entity>
+            - repeat 7:
+                - wait 5t
+                - feed <context.entity> amount:1 saturation:1
