@@ -86,3 +86,12 @@ omp_drink:
                     - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].sub[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
                 - case set:
                     - flag <player> omp.drunkness.level:<context.item.flag[omp.drink.strength].proc[omp_rand_range]>
+
+omp_no_milk:
+    type: world
+    debug: false
+    events:
+        on player consumes milk_bucket:
+            - determine passively cancelled
+            - take iteminhand quantity:1
+            - give bucket quantity:1 to:<player.inventory> slot:hand

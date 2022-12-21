@@ -1,4 +1,4 @@
-omp_blonde_ale:
+omp_drink_blonde_ale:
     type: item
     material: potion
     display name: <&color[#DE9547]>Blonde Ale
@@ -12,7 +12,7 @@ omp_blonde_ale:
                 type: add
             id: blonde_ale
 
-omp_amber_ale:
+omp_drink_amber_ale:
     type: item
     material: potion
     display name: <&color[#DE7847]>Amber Ale
