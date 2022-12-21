@@ -6,5 +6,5 @@ omp_modifier_cozy:
             - stop if:<context.item.material.name.equals[cookie].not.if_null[true]>
             - heal 4 <context.entity>
             - repeat 7:
-                - wait 5t
+                - wait 2t
                 - feed <context.entity> amount:1 saturation:1
