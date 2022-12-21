@@ -57,7 +57,7 @@ omp_tick:
                     - playsound <player> sound:block_brewing_stand_brew sound_category:PLAYERS pitch:2 volume:0.5
                     - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[2]>
 
-                - if <[drunkness]> > 20 && <util.random_chance[<[drunkness].sub[19].mul[2]>]>:
+                - if <[drunkness]> > 20 && <util.random_chance[<[drunkness].sub[19]>]>:
                     - playsound <player.location> sound:entity_donkey_hurt sound_category:PLAYERS pitch:0.5 volume:2
                     - flag <player> omp.drunkness.level:-:<util.random.decimal[0].to[5]>
                     - define vomit <entity[area_effect_cloud].with[base_potion=poison,false,false;particle_color=green;radius=3;radius_on_use=-0.2;radius_per_tick=-0.01;source=<player>;wait_time=0.5s]>
