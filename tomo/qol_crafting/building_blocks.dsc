@@ -32,4 +32,13 @@ fc_soul_torch:
             base: torch
             upgrade: soul_sand
 
+fc_end_rod:
+    type: item
+    material: end_rod
+    no_id: true
+    recipes:
+        1:
+            type: smithing
+            base: stick
+            upgrade: ender_pearl
 
