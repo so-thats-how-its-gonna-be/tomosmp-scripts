@@ -82,7 +82,57 @@ omp_modifier_apply:
     debug: false
     definitions: player|modifier_id|duration
     script:
-        - flag <[player]> omp.modifier.<[modifier_id]> expire:<[duration]>
+        - if <[duration].exists>:
+            - flag <[player]> omp.modifier.<[modifier_id]> expire:<[duration]>
+        - else:
+            - flag <[player]> omp.modifier.<[modifier_id]>:!
+
+omp_modifier_remove:
+    type: task
+    debug: false
+    definitions: player|modifier_id
+    script:
+        - flag <[player]> omp.modifier.<[modifier_id]>:!
+
+omp_command_modifier:
+    type: command
+    name: ompmodifier
+    description: Apply or remove a modifier to a player.
+    usage: /ompmodifier <&lt>apply|remove<&gt> <&lt>modifier<&gt> <&lt>player<&gt> <&lt>duration<&gt>
+    tab completions:
+        1: apply|remove
+        2: <server.flag[omp.modifier_ids]>
+        3: <server.online_players.parse_tag[<[parse_value].name>]>
+    permission: omp.command.modifier
+    script:
+        - define args <context.args>
+        - if <[args].size> > 4 || <[args].size> < 3:
+            - narrate "<&c>Invalid argument count! Usage: <script.data_key[usage]>"
+            - stop
+        - define modifier <[args].get[2]>
+        - if <[args].get[2].is_in[<server.flag[omp_modifier_ids]>].not>:
+            - narrate "<&c>Invalid modifier ID! Valid IDs: <&nl><white><server.flag[omp.modifier_ids].separated_by[<&nl>]>"
+            - stop
+        - define target <server.match_player[<[args].get[3]>]>
+        - if <[target].exists.not>:
+            - narrate "<&c>Invalid player <&dq><[args].get[3]><&dq>!"
+            - stop
+        - if <[args].get[1]> == apply:
+            - if <[args].get[4].exists.not>:
+                - run omp_modifier_apply def.player:<[target]> def.modifier_id:<[modifier]>
+                - narrate "<&a>Applied modifier <&dq><[modifier]><&dq> to <[target].name>!"
+            - else:
+                - define duration <duration[<[args].get[4]>]>
+                - run omp_modifier_apply def.player:<[target]> def.modifier_id:<[modifier]> def.duration:<[duration]>
+                - narrate "<&a>Applied modifier <&dq><[modifier]><&dq> to <[target].name> for <[duration].formatted>!"
+        - else if <[args].get[1]> == remove:
+            - if <[target].has_flag[omp.modifier.<[modifier]>]>:
+                - run omp_modifier_remove def.player:<[target]> def.modifier_id:<[modifier]>
+                - narrate "<&a>Removed modifier <&dq><[modifier]><&dq> from <[target].name>!"
+            - else:
+                - narrate "<&c><[target].name> does not have modifier <&dq><[modifier]><&dq>!"
+        - else:
+            - narrate "<&c>Invalid action <&dq><[args].get[1]><&dq>! Usage: <script.data_key[usage]>"
 
 omp_drink:
     type: world
