@@ -10,4 +10,6 @@ omp_drink_eggnog:
             drink:
                 strength: 2-2.5
                 type: add
+                modifiers:
+                    cozy: 30m
             id: eggnog
