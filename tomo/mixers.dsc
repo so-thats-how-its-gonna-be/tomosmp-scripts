@@ -82,3 +82,10 @@ wolf_no_enviromental_damage:
         on wolf damaged:
             - stop if:<context.cause.is_in[BLOCK_EXPLOSION|ENTITY_EXPLOSION|FIRE|FIRE_TICK|LAVA|LIGHTNING|SUFFOCATION|HOT_FLOOR|WITHER|FREEZE|FALL|FALLING_BLOCK].not>
             - determine cancelled
+
+vex_wont_target_villagers:
+    type: world
+    debug: false
+    events:
+        on vex targets villager:
+            - determine cancelled
