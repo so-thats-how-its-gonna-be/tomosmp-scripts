@@ -70,6 +70,20 @@ omp_tick:
                     - kill <player>
                     - flag <player> omp.drunkness.level:-:<util.random.decimal[50].to[100]>
 
+omp_reload:
+    type: world
+    debug: false
+    events:
+        after reload scripts:
+            - flag server omp.modifier_ids:<util.scripts.filter_tag[<[filter_value].name.starts_with[omp_modifier_]>].parse_tag[<[parse_value].name>]>
+
+omp_modifier_apply:
+    type: task
+    debug: false
+    definitions: player|modifier_id|duration
+    script:
+        - flag <[player]> omp.modifier.<[modifier_id]> expire:<[duration]>
+
 omp_drink:
     type: world
     debug: false
