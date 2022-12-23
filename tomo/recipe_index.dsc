@@ -114,3 +114,15 @@ recipes_index_dummy_open:
         on player left clicks block with:recipes_index_dummy:
             - determine passively cancelled
             - run recipes_index_open_random
+
+recipes_index_command:
+    type: command
+    name: recipesindex
+    description: Opens the recipes index.
+    usage: /recipesindex
+    aliases:
+        - ri
+        - index
+        - recipes
+    script:
+        - run recipes_index_open
