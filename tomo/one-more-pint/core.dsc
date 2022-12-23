@@ -150,6 +150,9 @@ omp_drink:
                     - flag <player> omp.drunkness.level:<player.flag[omp.drunkness.level].if_null[0].sub[<context.item.flag[omp.drink.strength].proc[omp_rand_range]>]>
                 - case set:
                     - flag <player> omp.drunkness.level:<context.item.flag[omp.drink.strength].proc[omp_rand_range]>
+        after player consumes item_flagged:omp.drink.modifiers:
+            - foreach <context.item.flag[omp.drink.modifiers]> as:modifier key:duration:
+                - run omp_modifier_apply def.player:<player> def.modifier_id:<[modifier]> def.duration:<[duration]>
 
 omp_no_milk:
     type: world
