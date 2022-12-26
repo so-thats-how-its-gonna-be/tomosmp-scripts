@@ -17,7 +17,7 @@ money4fishing:
     type: world
     debug: false
     events:
-        on player fishes item bukkit_priority:HIGH:
+        on player fishes item bukkit_priority:LOWEST:
             - stop if:<server.flag[tomo.features.fishing_bank_notes].not>
             - stop if:<player.mcmmo.level[fishing].is_less_than[30]>
             - if <util.random_chance[10]>:
